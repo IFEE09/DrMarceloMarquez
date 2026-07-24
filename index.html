@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#1e3a5f" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src https://maps.google.com https://www.google.com https://www.google.com.mx; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://maps.google.com https://www.google.com https://www.google.com.mx; upgrade-insecure-requests" />
   <link rel="canonical" href="https://drmarcelomarquez.com/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/favicon.ico" sizes="48x48" />
@@ -385,6 +385,71 @@
       </div>
     </div>
 
+    <section class="video-reel" id="consulta-video" aria-label="Consulta e intervencionismo en video">
+      <div class="section-inner">
+        <div class="video-reel__intro reveal">
+          <p class="section-label">En consulta</p>
+          <h2 class="section-title">Ultrasonido e intervencionismo guiado</h2>
+          <p class="section-sub">Procedimientos reales en Ultrasonido Biogamma: diagnóstico y terapéutica con guía ecográfica. Sin sonido; puedes pausar en cualquier momento.</p>
+        </div>
+        <div class="video-reel__shell glass reveal" data-video-reel>
+          <div class="video-reel__viewport">
+            <div class="video-reel__track" data-reel-track>
+              <figure class="video-reel__card is-active" data-reel-card>
+                <video
+                  class="video-reel__video"
+                  muted
+                  playsinline
+                  loop
+                  autoplay
+                  preload="auto"
+                  poster="assets/video/consulta-01-poster.jpg"
+                  data-src="assets/video/consulta-01.mp4"
+                  aria-label="Video 1: procedimiento guiado por ultrasonido"
+                ></video>
+              </figure>
+              <figure class="video-reel__card" data-reel-card>
+                <video
+                  class="video-reel__video"
+                  muted
+                  playsinline
+                  loop
+                  autoplay
+                  preload="metadata"
+                  poster="assets/video/consulta-02-poster.jpg"
+                  data-src="assets/video/consulta-02.mp4"
+                  aria-label="Video 2: procedimiento guiado por ultrasonido"
+                ></video>
+              </figure>
+              <figure class="video-reel__card" data-reel-card>
+                <video
+                  class="video-reel__video"
+                  muted
+                  playsinline
+                  loop
+                  autoplay
+                  preload="metadata"
+                  poster="assets/video/consulta-03-poster.jpg"
+                  data-src="assets/video/consulta-03.mp4"
+                  aria-label="Video 3: intervencionismo musculoesquelético guiado por ultrasonido"
+                ></video>
+              </figure>
+            </div>
+          </div>
+          <div class="video-reel__controls">
+            <button type="button" class="video-reel__nav" data-reel-prev aria-label="Video anterior">‹</button>
+            <div class="video-reel__dots" role="tablist" aria-label="Seleccionar video">
+              <button type="button" class="video-reel__dot is-active" data-reel-dot aria-label="Ver video 1" aria-selected="true"></button>
+              <button type="button" class="video-reel__dot" data-reel-dot aria-label="Ver video 2" aria-selected="false"></button>
+              <button type="button" class="video-reel__dot" data-reel-dot aria-label="Ver video 3" aria-selected="false"></button>
+            </div>
+            <button type="button" class="video-reel__nav" data-reel-next aria-label="Video siguiente">›</button>
+            <button type="button" class="video-reel__toggle" data-reel-toggle aria-pressed="false" aria-label="Pausar videos">Pausar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- STATEMENT SECTION — estilo Vicio -->
     <section class="statement-section" aria-label="Propuesta de valor">
       <div class="statement-inner reveal">
@@ -747,7 +812,7 @@
             </div>
           </div>
           <figure class="about-photo reveal">
-            <img src="assets/images/about-certificacion.webp" alt="Dr. Marcelo Márquez Cruz con constancia de formación en medicina musculoesquelética" width="800" height="1000" loading="lazy" />
+            <img src="assets/images/about-certificacion.webp" alt="Dr. Marcelo Márquez Cruz con constancia de formación en medicina musculoesquelética" width="800" height="1000" loading="lazy" decoding="async" />
             <figcaption>Formación continua en imagen e intervencionismo</figcaption>
           </figure>
         </div>
@@ -763,23 +828,23 @@
         </div>
         <div class="gallery-grid">
           <figure class="gallery-item gallery-item--tall reveal">
-            <img src="assets/images/galeria-procedimiento.webp" alt="Preparación estéril para procedimiento de ultrasonido guiado" width="800" height="1000" loading="lazy" />
+            <img src="assets/images/galeria-procedimiento.webp" alt="Preparación estéril para procedimiento de ultrasonido guiado" width="800" height="1000" loading="lazy" decoding="async" />
             <figcaption>Preparación de procedimiento</figcaption>
           </figure>
           <figure class="gallery-item reveal">
-            <img src="assets/images/galeria-formacion.webp" alt="Formación con equipo de ultrasonido diagnóstico" width="800" height="1000" loading="lazy" />
+            <img src="assets/images/galeria-formacion.webp" alt="Formación con equipo de ultrasonido diagnóstico" width="800" height="1000" loading="lazy" decoding="async" />
             <figcaption>Formación en imagen</figcaption>
           </figure>
           <figure class="gallery-item reveal">
-            <img src="assets/images/galeria-congreso.webp" alt="Dr. Marcelo Márquez en evento médico profesional" width="800" height="1000" loading="lazy" />
+            <img src="assets/images/galeria-congreso.webp" alt="Dr. Marcelo Márquez en evento médico profesional" width="800" height="1000" loading="lazy" decoding="async" />
             <figcaption>Comunidad médica</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--wide reveal">
-            <img src="assets/images/hero-consulta.webp" alt="Consulta de ultrasonido e intervencionismo guiado" width="1400" height="800" loading="lazy" />
+            <img src="assets/images/hero-consulta.webp" alt="Consulta de ultrasonido e intervencionismo guiado" width="1400" height="800" loading="lazy" decoding="async" />
             <figcaption>Consulta e intervencionismo guiado</figcaption>
           </figure>
           <figure class="gallery-item reveal">
-            <img src="assets/images/about-certificacion.webp" alt="Certificación en medicina musculoesquelética" width="800" height="1000" loading="lazy" />
+            <img src="assets/images/about-certificacion.webp" alt="Certificación en medicina musculoesquelética" width="800" height="1000" loading="lazy" decoding="async" />
             <figcaption>Certificación y actualización</figcaption>
           </figure>
         </div>
