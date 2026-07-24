@@ -1139,3 +1139,19 @@
       .hero-badges { gap: 0.4rem; }
       .hero-badge { font-size: 0.68rem; padding: 0.32rem 0.7rem; }
     }
+
+/* ── Service Hero Image ─────────────────────────────── */
+.service-hero-img {
+  margin: 2rem 0 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  line-height: 0;
+}
+.service-hero-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  object-fit: cover;
+  max-height: 420px;
+}
