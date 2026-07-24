@@ -464,6 +464,12 @@
       content: ''; position: absolute; left: 0; top: 0.55em;
       width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
     }
+    .detail-text a, .faq-answer a {
+      color: var(--ink-soft); font-weight: 600;
+      text-decoration: underline; text-decoration-color: var(--gold);
+      text-underline-offset: 3px;
+    }
+    .detail-text a:hover, .faq-answer a:hover { color: var(--ink); }
 
     /* ABOUT */
     .about-panel { border-radius: 28px; padding: clamp(1.5rem, 4vw, 3rem); }

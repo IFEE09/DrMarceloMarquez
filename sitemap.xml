@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://drmarcelomarquez.com/preparacion.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://drmarcelomarquez.com/faq.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://drmarcelomarquez.com/servicios/ultrasonido-musculoesqueletico.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
