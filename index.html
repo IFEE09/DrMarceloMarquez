@@ -22,60 +22,175 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="assets/fonts/google-fonts.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Schema 1: MedicalClinic (Local SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Ultrasonido Biogamma — Dr. Marcelo Márquez Cruz",
+    "alternateName": "Biogamma Ultrasonido Mérida",
+    "description": "Clínica especializada en ultrasonido diagnóstico en Mérida, Yucatán. Ecografía musculoesquelética, abdominal, ginecológica, Doppler vascular, tiroides y mamario. Resultados el mismo día, sin radiación.",
+    "url": "https://ifee09.github.io/DrMarceloMarquez/",
+    "telephone": "+529992010898",
+    "image": "https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png",
+    "priceRange": "$$",
+    "currenciesAccepted": "MXN",
+    "paymentAccepted": "Cash, Credit Card",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 41 #322, Francisco de Montejo III",
+      "addressLocality": "Mérida",
+      "addressRegion": "Yucatán",
+      "postalCode": "97203",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 21.0353,
+      "longitude": -89.6197
+    },
+    "hasMap": "https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "medicalSpecialty": [
+      "Radiology",
+      "Musculoskeletal Imaging",
+      "Obstetrics and Gynecology",
+      "Vascular Surgery"
+    ],
+    "availableService": [
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido Musculoesquelético",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-musculoesqueletico.html",
+        "description": "Evaluación de músculos, tendones, ligamentos y articulaciones. Diagnóstico de manguito rotador, túnel carpiano, fascitis plantar y lesiones deportivas.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Radiology"}
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido Abdominal",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-abdominal.html",
+        "description": "Evaluación de hígado, vesícula biliar (cálculos), riñones, páncreas y bazo. Detección de hígado graso, piedras en la vesícula y quistes renales.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Radiology"}
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido Ginecológico y Obstétrico",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-ginecologico-obstetrico.html",
+        "description": "Ultrasonido transvaginal para detección de miomas, quistes de ovario y endometriosis. Ultrasonido obstétrico para control de embarazo.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Obstetrics and Gynecology"}
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido Doppler Vascular",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-doppler-vascular.html",
+        "description": "Evaluación del flujo sanguíneo. Detección de trombosis venosa profunda, várices, insuficiencia venosa y Doppler carotídeo.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Vascular Surgery"}
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido de Tiroides",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-tiroides.html",
+        "description": "Evaluación de nódulos tiroideos, bocio, hipotiroidismo e hipertiroidismo. Guía para biopsia de tiroides.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Radiology"}
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Ultrasonido Mamario",
+        "url": "https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-mamario.html",
+        "description": "Evaluación de nódulos mamarios, quistes y masas. Complemento de la mastografía para mamas densas.",
+        "relevantSpecialty": {"@type": "MedicalSpecialty", "name": "Radiology"}
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/ultrasonido_biogamma/",
+      "https://www.facebook.com/BiogammaUltrasonido/"
+    ]
+  }
+  </script>
+
+  <!-- Schema 2: Physician -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Physician",
     "name": "Dr. Marcelo Márquez Cruz",
-    "description": "Especialista en ultrasonido diagnóstico y ecografía médica en Mérida, Yucatán",
+    "description": "Médico especialista en ultrasonido diagnóstico y ecografía médica en Mérida, Yucatán. Cédula Profesional 09126837.",
     "url": "https://ifee09.github.io/DrMarceloMarquez/",
     "telephone": "+529992010898",
     "image": "https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png",
     "medicalSpecialty": "Radiology",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Calle 41 #322, Francisco de Montejo III",
       "addressLocality": "Mérida",
       "addressRegion": "Yucatán",
+      "postalCode": "97203",
       "addressCountry": "MX"
-    },
-    "hasMap": "https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566",
-    "worksFor": {
-      "@type": "MedicalClinic",
-      "name": "Ultrasonido Biogamma",
-      "hasMap": "https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566"
     },
     "identifier": {
       "@type": "PropertyValue",
       "name": "Cédula Profesional",
       "value": "09126837"
     },
-    "availableService": [
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Musculoesquelético"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Abdominal"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Ginecológico"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Obstétrico"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Doppler Vascular"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido de Tiroides"},
-      {"@type": "MedicalProcedure", "name": "Ultrasonido Mamario"}
-    ]
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "Ultrasonido Biogamma",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 41 #322, Francisco de Montejo III",
+        "addressLocality": "Mérida",
+        "addressRegion": "Yucatán",
+        "postalCode": "97203",
+        "addressCountry": "MX"
+      }
+    }
   }
   </script>
+
+  <!-- Schema 3: FAQPage (Google Featured Snippets) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type":"Question","name":"¿Para qué sirve el ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras para crear imágenes de órganos y tejidos. Es seguro, no usa radiación y permite diagnósticos precisos en tiempo real."}},
-      {"@type":"Question","name":"¿El ultrasonido usa radiación? ¿Es peligroso?","acceptedAnswer":{"@type":"Answer","text":"No. Es completamente seguro, sin radiación. Puede realizarse en embarazadas y niños sin riesgo."}},
-      {"@type":"Question","name":"¿Cómo prepararme para un ultrasonido abdominal?","acceptedAnswer":{"@type":"Answer","text":"Para el ultrasonido abdominal se requiere ayuno de 4 a 6 horas. Para ultrasonido pélvico, llegar con vejiga llena (1 litro de agua 1 hora antes)."}},
-      {"@type":"Question","name":"¿Cuánto tiempo dura un ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de los estudios de ultrasonido duran entre 15 y 45 minutos dependiendo del estudio."}},
-      {"@type":"Question","name":"¿Cuál es la diferencia entre ultrasonido y resonancia magnética?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras, es más rápido, económico y no usa radiación. La resonancia ofrece mayor detalle en estructuras profundas. Son estudios complementarios."}},
-      {"@type":"Question","name":"¿Cuál es la diferencia entre mastografía y ultrasonido mamario?","acceptedAnswer":{"@type":"Answer","text":"La mastografía usa rayos X de baja dosis y es ideal para detectar microcalcificaciones. El ultrasonido diferencia quistes de tumores sólidos y es mejor para mamas densas. Son complementarios."}},
-      {"@type":"Question","name":"¿El ultrasonido transvaginal duele?","acceptedAnswer":{"@type":"Answer","text":"Es un procedimiento indoloro. Puede causar leve incomodidad, pero no dolor."}},
-      {"@type":"Question","name":"¿Cuándo hacerse un ultrasonido de tiroides?","acceptedAnswer":{"@type":"Answer","text":"Cuando hay un nódulo palpable en el cuello, alteraciones en exámenes hormonales, bocio o antecedentes familiares de cáncer tiroideo."}},
-      {"@type":"Question","name":"¿Qué detecta el ultrasonido Doppler?","acceptedAnswer":{"@type":"Answer","text":"Evalúa el flujo sanguíneo. Detecta trombosis venosa, várices, obstrucciones arteriales e insuficiencia venosa."}},
-      {"@type":"Question","name":"¿Se necesita cita previa?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda agendar cita para garantizar disponibilidad y tiempo suficiente para el estudio."}}
+      {"@type":"Question","name":"¿Para qué sirve el ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras para crear imágenes de órganos y tejidos en tiempo real. Es seguro, no usa radiación y permite diagnósticos precisos de hígado, riñones, vesícula, músculos, tendones, útero, ovarios, tiroides y vasos sanguíneos."}},
+      {"@type":"Question","name":"¿El ultrasonido usa radiación? ¿Es peligroso?","acceptedAnswer":{"@type":"Answer","text":"No. El ultrasonido es completamente seguro, no usa radiación ionizante. Puede realizarse en embarazadas, bebés y niños sin ningún riesgo."}},
+      {"@type":"Question","name":"¿Cómo prepararme para un ultrasonido abdominal?","acceptedAnswer":{"@type":"Answer","text":"Para el ultrasonido abdominal se requiere ayuno de 4 a 6 horas para que la vesícula esté distendida y los órganos sean más visibles. Para ultrasonido pélvico, llegar con vejiga llena (tomar 1 litro de agua 1 hora antes y no orinar)."}},
+      {"@type":"Question","name":"¿Cuánto tiempo dura un ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de los estudios de ultrasonido duran entre 15 y 45 minutos dependiendo del tipo de estudio. Los resultados se entregan el mismo día."}},
+      {"@type":"Question","name":"¿Cuál es la diferencia entre ultrasonido y resonancia magnética?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras, es más rápido, económico, sin radiación y permite ver movimiento en tiempo real. La resonancia magnética ofrece mayor detalle en estructuras profundas y tejidos blandos complejos. Son estudios complementarios, no excluyentes."}},
+      {"@type":"Question","name":"¿Cuál es la diferencia entre mastografía y ultrasonido mamario?","acceptedAnswer":{"@type":"Answer","text":"La mastografía usa rayos X de baja dosis y es ideal para detectar microcalcificaciones en mujeres mayores de 40 años. El ultrasonido mamario diferencia quistes de tumores sólidos y es la mejor opción para mamas densas y mujeres jóvenes. Son complementarios."}},
+      {"@type":"Question","name":"¿El ultrasonido transvaginal duele?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido transvaginal es un procedimiento indoloro. Puede causar leve incomodidad momentánea, pero no dolor. Es el método más preciso para evaluar útero, ovarios y detectar miomas o quistes."}},
+      {"@type":"Question","name":"¿Cuándo hacerse un ultrasonido de tiroides?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda un ultrasonido de tiroides cuando hay un nódulo palpable en el cuello, alteraciones en exámenes hormonales (TSH, T3, T4), bocio visible, antecedentes familiares de cáncer tiroideo o síntomas de hipotiroidismo o hipertiroidismo."}},
+      {"@type":"Question","name":"¿Qué detecta el ultrasonido Doppler?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido Doppler vascular evalúa el flujo sanguíneo en tiempo real. Detecta trombosis venosa profunda (coágulos), várices e insuficiencia venosa, obstrucciones arteriales, aneurismas y permite el Doppler carotídeo para evaluar riesgo de derrame cerebral."}},
+      {"@type":"Question","name":"¿Qué detecta el ultrasonido musculoesquelético?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido musculoesquelético detecta desgarros del manguito rotador, tendinitis, bursitis, síndrome del túnel carpiano, fascitis plantar, rotura del tendón de Aquiles, quistes ganglión, lesiones deportivas y artritis. Es el estudio de primera elección antes de la resonancia magnética."}},
+      {"@type":"Question","name":"¿Qué detecta el ultrasonido abdominal?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido abdominal detecta cálculos biliares (piedras en la vesícula), hígado graso, quistes renales, cálculos renales, pancreatitis, esplenomegalia (bazo agrandado), ascitis y masas abdominales."}},
+      {"@type":"Question","name":"¿Se necesita cita previa para el ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"Sí, se recomienda agendar cita previa para garantizar disponibilidad y el tiempo suficiente para tu estudio. Puedes agendar por WhatsApp al 999 201 0898 o llamando directamente."}}
     ]
+  }
+  </script>
+
+  <!-- Schema 4: WebSite con SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dr. Marcelo Márquez — Ultrasonido Diagnóstico Mérida",
+    "url": "https://ifee09.github.io/DrMarceloMarquez/",
+    "description": "Sitio oficial del Dr. Marcelo Márquez Cruz, especialista en ultrasonido diagnóstico en Mérida, Yucatán.",
+    "inLanguage": "es-MX"
   }
   </script>
 </head>
