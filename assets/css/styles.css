@@ -833,3 +833,211 @@
     }
     .wa-float { box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35); }
 
+
+
+    /* ═══════════════════════════════════════════════
+       VICIO-LAYER — elementos disruptivos elegantes
+       Se agregan sobre el diseño existente sin romperlo
+    ═══════════════════════════════════════════════ */
+
+    /* ── Cursor personalizado ── */
+    @media (pointer: fine) {
+      body { cursor: none; }
+      a, button, [role="button"], summary { cursor: none; }
+      .cursor-dot {
+        position: fixed; top: 0; left: 0; z-index: 9999;
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--ink);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease;
+        will-change: transform;
+      }
+      .cursor-ring {
+        position: fixed; top: 0; left: 0; z-index: 9998;
+        width: 36px; height: 36px; border-radius: 50%;
+        border: 1.5px solid rgba(62, 83, 102, 0.45);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+                    width 0.25s ease, height 0.25s ease, border-color 0.2s ease, opacity 0.2s ease;
+        will-change: transform;
+      }
+      body.cursor-hover .cursor-dot {
+        width: 12px; height: 12px; background: var(--gold);
+      }
+      body.cursor-hover .cursor-ring {
+        width: 52px; height: 52px; border-color: rgba(210, 192, 154, 0.7);
+      }
+    }
+
+    /* ── Ticker oscuro estilo Vicio (reemplaza el ticker claro) ── */
+    .ticker {
+      background: var(--ink) !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      padding: 1.1rem 0 !important;
+    }
+    .ticker-track {
+      font-family: 'Outfit', sans-serif !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+    .ticker-track .ticker-dot { color: var(--gold) !important; }
+
+    /* ── Badges flotantes en el Hero ── */
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.38rem 0.85rem; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      color: var(--ink-soft);
+      box-shadow: 0 2px 8px rgba(62, 83, 102, 0.07);
+      animation: badge-float 4s ease-in-out infinite;
+    }
+    .hero-badge:nth-child(2) { animation-delay: 0.8s; }
+    .hero-badge:nth-child(3) { animation-delay: 1.6s; }
+    .hero-badge .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #4caf7d; flex-shrink: 0;
+    }
+    @keyframes badge-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-3px); }
+    }
+
+    /* ── Tipografía gigante de fondo (watermark) ── */
+    .section-watermark {
+      position: relative; overflow: hidden;
+    }
+    .section-watermark::before {
+      content: attr(data-wm);
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: clamp(5rem, 18vw, 14rem);
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(62, 83, 102, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      line-height: 1;
+    }
+    .section-watermark > * { position: relative; z-index: 1; }
+
+    /* ── Sección Statement estilo Vicio ── */
+    .statement-section {
+      position: relative; z-index: 1;
+      background: var(--ink);
+      padding: 5rem 4%;
+      overflow: hidden;
+    }
+    .statement-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(210, 192, 154, 0.08) 0%, transparent 55%),
+                  radial-gradient(ellipse at 80% 50%, rgba(126, 160, 181, 0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .statement-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 2rem;
+    }
+    .statement-eyebrow {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); opacity: 0.85;
+    }
+    .statement-headline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 14ch;
+    }
+    .statement-headline em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+    }
+    .statement-sub {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 36rem; line-height: 1.65;
+    }
+    .statement-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.2rem; border-radius: 999px;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      background: var(--gold); color: var(--ink);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s ease, filter 0.2s ease;
+      box-shadow: 0 6px 28px rgba(210, 192, 154, 0.35);
+      position: relative; overflow: hidden;
+    }
+    .statement-cta::before {
+      content: '';
+      position: absolute; top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+      transform: skewX(-20deg);
+      animation: shimmer 3.5s infinite;
+    }
+    .statement-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 40px rgba(210, 192, 154, 0.5);
+      filter: brightness(1.05);
+    }
+    .statement-cta svg {
+      width: 1.1rem; height: 1.1rem;
+      stroke: currentColor; fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Botones con hover magnético ── */
+    .btn-magnetic {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s ease !important;
+    }
+
+    /* ── Línea separadora estilo editorial ── */
+    .editorial-divider {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 0 4%; max-width: 1120px; margin: 0 auto;
+      color: var(--muted); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .editorial-divider::before,
+    .editorial-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--line);
+    }
+
+    /* ── Responsive Vicio layer ── */
+    @media (max-width: 600px) {
+      .statement-headline { font-size: clamp(2.2rem, 12vw, 3.5rem); }
+      .statement-headline em { -webkit-text-stroke-width: 1.5px; }
+      .hero-badges { gap: 0.4rem; }
+      .hero-badge { font-size: 0.68rem; padding: 0.32rem 0.7rem; }
+    }

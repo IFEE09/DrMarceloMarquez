@@ -102,6 +102,11 @@
   <main id="main">
     <section class="hero" aria-label="Inicio">
       <div class="hero-copy glass reveal">
+        <div class="hero-badges">
+          <span class="hero-badge"><span class="badge-dot"></span>Sin radiación</span>
+          <span class="hero-badge"><span class="badge-dot"></span>Resultados el mismo día</span>
+          <span class="hero-badge"><span class="badge-dot"></span>Mérida, Yucatán</span>
+        </div>
         <p class="hero-kicker">Ultrasonido diagnóstico en Mérida</p>
         <h1 class="hero-brand">Dr. Marcelo <em>Márquez</em> — Especialista en ultrasonido musculoesquelético y diagnóstico</h1>
         <p class="hero-lead">Ecografía musculoesquelética, abdominal, ginecológica, Doppler vascular, tiroides y mamario. Resultados el mismo día. Sin radiación. Totalmente seguro.</p>
@@ -140,7 +145,20 @@
       </div>
     </div>
 
-    <section class="section" id="servicios">
+    <!-- STATEMENT SECTION — estilo Vicio -->
+    <section class="statement-section" aria-label="Propuesta de valor">
+      <div class="statement-inner reveal">
+        <p class="statement-eyebrow">Ultrasonido diagnóstico de alta precisión</p>
+        <h2 class="statement-headline">VE LO QUE <em>OTROS</em> NO VEN.</h2>
+        <p class="statement-sub">Diagnóstico en tiempo real, sin radiación, con resultados el mismo día. Ecografía musculoesquelética, abdominal, ginecológica, Doppler vascular, tiroides y mamario en Mérida.</p>
+        <a href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20un%20ultrasonido" class="statement-cta" target="_blank" rel="noopener noreferrer">
+          Agenda tu estudio
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section-watermark" data-wm="DIAGNÓSTICO" id="servicios">
       <div class="section-inner">
         <div class="featured-header reveal">
           <p class="section-label">Grupo 1 · Más buscados</p>
@@ -229,7 +247,7 @@
       </div>
     </section>
 
-    <section class="section" id="sintomas">
+    <section class="section section-watermark" data-wm="SÍNTOMAS" id="sintomas">
       <div class="section-inner">
         <div class="symptoms-header reveal">
           <p class="section-label">¿Qué te duele?</p>
@@ -459,7 +477,7 @@
       </div>
     </section>
 
-    <section class="section about" id="about">
+    <section class="section section-watermark about" data-wm="MÉDICO" id="about">
       <div class="section-inner about-panel glass">
         <div class="about-grid">
           <div class="reveal">
@@ -591,6 +609,36 @@
     <span>WhatsApp</span>
   </a>
 
+  <!-- Cursor personalizado estilo Vicio -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
   <script src="assets/js/main.js"></script>
+  <script>
+  (function(){
+    var dot = document.getElementById('cursor-dot');
+    var ring = document.getElementById('cursor-ring');
+    if (!dot || !ring) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    var mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    }, { passive: true });
+    (function loop(){
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(loop);
+    })();
+    var hoverEls = document.querySelectorAll('a, button, [role="button"], summary, .featured-card, .symptom-card, .secondary-card');
+    hoverEls.forEach(function(el){
+      el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
+      el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
+    });
+  })();
+  </script>
 </body>
 </html>
