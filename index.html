@@ -1,465 +1,596 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Marcelo Márquez</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0a1628;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --white: #ffffff;
-      --gray-light: #f5f6fa;
-      --gray-mid: #8a9ab5;
-      --text: #1e2d45;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--text);
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 6%;
-      background: rgba(10, 22, 40, 0.96);
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.82);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.25s;
-    }
-
-    .nav-links a:hover { color: var(--gold-light); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #112240 60%, #1a3a6b 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 6% 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-      top: -100px; right: -100px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.4);
-      color: var(--gold-light);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.45rem 1.2rem;
-      border-radius: 50px;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      color: var(--white);
-      line-height: 1.12;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 span { color: var(--gold); }
-
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.7);
-      max-width: 560px;
-      margin: 0 auto 2.6rem;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.92rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 1rem 2.6rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 6px 28px rgba(201,168,76,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(201,168,76,0.5);
-    }
-
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 6%; }
-
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--navy);
-      margin-bottom: 1.2rem;
-      line-height: 1.2;
-    }
-
-    .section-sub {
-      color: var(--gray-mid);
-      font-size: 1rem;
-      line-height: 1.75;
-      max-width: 600px;
-    }
-
-    /* ── ABOUT ── */
-    .about {
-      background: var(--gray-light);
-    }
-
-    .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .stat-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 1.6rem;
-      box-shadow: 0 4px 20px rgba(10,22,40,0.07);
-      border-left: 4px solid var(--gold);
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--navy);
-      font-weight: 700;
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--gray-mid);
-      margin-top: 0.3rem;
-      font-weight: 500;
-    }
-
-    .about-image-placeholder {
-      background: linear-gradient(135deg, var(--navy), #1a3a6b);
-      border-radius: 24px;
-      height: 420px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-      gap: 1rem;
-    }
-
-    .about-image-placeholder svg {
-      width: 80px; height: 80px;
-      opacity: 0.4;
-    }
-
-    /* ── SERVICES ── */
-    .services-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .services-header .section-sub { margin: 0 auto; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid rgba(10,22,40,0.08);
-      border-radius: 20px;
-      padding: 2.2rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: default;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(10,22,40,0.12);
-    }
-
-    .service-icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.4rem;
-      font-size: 1.5rem;
-    }
-
-    .service-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--navy);
-      margin-bottom: 0.7rem;
-    }
-
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--gray-mid);
-      line-height: 1.7;
-    }
-
-    /* ── CONTACT ── */
-    .contact {
-      background: linear-gradient(135deg, var(--navy), #112240);
-      text-align: center;
-    }
-
-    .contact .section-title { color: var(--white); }
-    .contact .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; }
-
-    .contact-links {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-outline {
-      display: inline-block;
-      border: 2px solid rgba(201,168,76,0.6);
-      color: var(--gold-light);
-      font-weight: 600;
-      font-size: 0.88rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.9rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.25s, color 0.25s;
-    }
-
-    .btn-outline:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #060e1c;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 2rem 6%;
-      font-size: 0.82rem;
-    }
-
-    footer span { color: var(--gold); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-image-placeholder { height: 260px; }
-    }
-  </style>
+  <title>Dr. Marcelo Márquez | Ultrasonido Diagnóstico en Mérida | Especialista</title>
+  <meta name="description" content="Especialista en ultrasonido diagnóstico en Mérida. Estudios musculoesqueléticos, abdominal, ginecológico, obstétrico, Doppler, tiroides y mamario. Resultados el mismo día. Sin radiación. Agenda al 999 201 0898." />
+  <meta name="keywords" content="ultrasonido, ecografía, ultrasonido abdominal, ultrasonido musculoesquelético, ultrasonido transvaginal, ultrasonido obstétrico, ultrasonido Doppler, ultrasonido tiroides, ultrasonido mamario, ultrasonido rodilla, ultrasonido hombro, ecografía Mérida, Dr. Marcelo Márquez" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Dr. Marcelo Márquez" />
+  <link rel="canonical" href="https://ifee09.github.io/DrMarceloMarquez/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:title" content="Dr. Marcelo Márquez | Ultrasonido Diagnóstico en Mérida" />
+  <meta property="og:description" content="Especialista en ultrasonido diagnóstico. Ecografía musculoesquelética, abdominal, ginecológica, Doppler y más. Agenda tu estudio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ifee09.github.io/DrMarceloMarquez/" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="assets/fonts/google-fonts.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Dr. Marcelo Márquez Cruz",
+    "description": "Especialista en ultrasonido diagnóstico y ecografía médica en Mérida, Yucatán",
+    "url": "https://ifee09.github.io/DrMarceloMarquez/",
+    "telephone": "+529992010898",
+    "image": "https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png",
+    "medicalSpecialty": "Radiology",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mérida",
+      "addressRegion": "Yucatán",
+      "addressCountry": "MX"
+    },
+    "hasMap": "https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "Ultrasonido Biogamma",
+      "hasMap": "https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Cédula Profesional",
+      "value": "09126837"
+    },
+    "availableService": [
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Musculoesquelético"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Abdominal"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Ginecológico"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Obstétrico"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Doppler Vascular"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido de Tiroides"},
+      {"@type": "MedicalProcedure", "name": "Ultrasonido Mamario"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Para qué sirve el ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras para crear imágenes de órganos y tejidos. Es seguro, no usa radiación y permite diagnósticos precisos en tiempo real."}},
+      {"@type":"Question","name":"¿El ultrasonido usa radiación? ¿Es peligroso?","acceptedAnswer":{"@type":"Answer","text":"No. Es completamente seguro, sin radiación. Puede realizarse en embarazadas y niños sin riesgo."}},
+      {"@type":"Question","name":"¿Cómo prepararme para un ultrasonido abdominal?","acceptedAnswer":{"@type":"Answer","text":"Para el ultrasonido abdominal se requiere ayuno de 4 a 6 horas. Para ultrasonido pélvico, llegar con vejiga llena (1 litro de agua 1 hora antes)."}},
+      {"@type":"Question","name":"¿Cuánto tiempo dura un ultrasonido?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de los estudios de ultrasonido duran entre 15 y 45 minutos dependiendo del estudio."}},
+      {"@type":"Question","name":"¿Cuál es la diferencia entre ultrasonido y resonancia magnética?","acceptedAnswer":{"@type":"Answer","text":"El ultrasonido usa ondas sonoras, es más rápido, económico y no usa radiación. La resonancia ofrece mayor detalle en estructuras profundas. Son estudios complementarios."}},
+      {"@type":"Question","name":"¿Cuál es la diferencia entre mastografía y ultrasonido mamario?","acceptedAnswer":{"@type":"Answer","text":"La mastografía usa rayos X de baja dosis y es ideal para detectar microcalcificaciones. El ultrasonido diferencia quistes de tumores sólidos y es mejor para mamas densas. Son complementarios."}},
+      {"@type":"Question","name":"¿El ultrasonido transvaginal duele?","acceptedAnswer":{"@type":"Answer","text":"Es un procedimiento indoloro. Puede causar leve incomodidad, pero no dolor."}},
+      {"@type":"Question","name":"¿Cuándo hacerse un ultrasonido de tiroides?","acceptedAnswer":{"@type":"Answer","text":"Cuando hay un nódulo palpable en el cuello, alteraciones en exámenes hormonales, bocio o antecedentes familiares de cáncer tiroideo."}},
+      {"@type":"Question","name":"¿Qué detecta el ultrasonido Doppler?","acceptedAnswer":{"@type":"Answer","text":"Evalúa el flujo sanguíneo. Detecta trombosis venosa, várices, obstrucciones arteriales e insuficiencia venosa."}},
+      {"@type":"Question","name":"¿Se necesita cita previa?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda agendar cita para garantizar disponibilidad y tiempo suficiente para el estudio."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">Dr. Marcelo Márquez</a>
-    <ul class="nav-links">
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="nav-logo" aria-label="Dr. Marcelo Márquez Cruz — Inicio">
+      <img src="assets/images/firma-logo.png" alt="Dr. Marcelo Márquez Cruz" width="220" height="47" />
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sintomas">Síntomas</a></li>
+      <li><a href="#otros-estudios">Más estudios</a></li>
       <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Agendar</a></li>
     </ul>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-badge">Profesional de la Salud</div>
-      <h1>Dr. Marcelo<br /><span>Márquez</span></h1>
-      <p>Comprometido con la excelencia médica, el bienestar integral y la atención personalizada para cada paciente.</p>
-      <a href="#contact" class="btn-primary">Agendar Consulta</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-inner">
-      <div>
-        <p class="section-label">Sobre mí</p>
-        <h2 class="section-title">Experiencia y dedicación al servicio de su salud</h2>
-        <p class="section-sub">
-          El Dr. Marcelo Márquez es un profesional médico con amplia trayectoria en el diagnóstico, tratamiento y seguimiento de pacientes. Su enfoque humanista y científico garantiza una atención de primer nivel.
+  <main id="main">
+    <section class="hero" aria-label="Inicio">
+      <div class="hero-copy glass reveal">
+        <p class="hero-kicker">Ultrasonido diagnóstico en Mérida</p>
+        <h1 class="hero-brand">Dr. Marcelo <em>Márquez</em> — Especialista en ultrasonido musculoesquelético y diagnóstico</h1>
+        <p class="hero-lead">Ecografía musculoesquelética, abdominal, ginecológica, Doppler vascular, tiroides y mamario. Resultados el mismo día. Sin radiación. Totalmente seguro.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20un%20ultrasonido" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Agenda tu Ultrasonido</a>
+          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+        </div>
+      </div>
+      <aside class="hero-visual reveal">
+        <img src="assets/images/hero-retrato.png" alt="Retrato profesional del Dr. Marcelo Márquez Cruz, especialista en ultrasonido diagnóstico en Mérida" width="900" height="1200" />
+        <p class="hero-caption">
+          <strong>Dr. Marcelo Márquez Cruz</strong>
+          Ced. Prof. 09126837 · Mérida, Yucatán
         </p>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Años de experiencia</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5,000+</div>
-            <div class="stat-label">Pacientes atendidos</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Atención personalizada</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Disponibilidad urgencias</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-image-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-        <span>Foto del Dr. Márquez</span>
+      </aside>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Ultrasonido Musculoesquelético</span><span class="ticker-dot">·</span>
+        <span>Abdominal</span><span class="ticker-dot">·</span>
+        <span>Ginecológico y Obstétrico</span><span class="ticker-dot">·</span>
+        <span>Doppler Vascular</span><span class="ticker-dot">·</span>
+        <span>Tiroides</span><span class="ticker-dot">·</span>
+        <span>Mamario</span><span class="ticker-dot">·</span>
+        <span>Sin radiación</span><span class="ticker-dot">·</span>
+        <span>Resultados el mismo día</span><span class="ticker-dot">·</span>
+        <span>Ultrasonido Musculoesquelético</span><span class="ticker-dot">·</span>
+        <span>Abdominal</span><span class="ticker-dot">·</span>
+        <span>Ginecológico y Obstétrico</span><span class="ticker-dot">·</span>
+        <span>Doppler Vascular</span><span class="ticker-dot">·</span>
+        <span>Tiroides</span><span class="ticker-dot">·</span>
+        <span>Mamario</span><span class="ticker-dot">·</span>
+        <span>Sin radiación</span><span class="ticker-dot">·</span>
+        <span>Resultados el mismo día</span><span class="ticker-dot">·</span>
       </div>
     </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="services-inner">
-      <div class="services-header">
-        <p class="section-label">Servicios</p>
-        <h2 class="section-title">¿En qué puedo ayudarte?</h2>
-        <p class="section-sub">Ofrezco una amplia gama de servicios médicos con los más altos estándares de calidad y calidez humana.</p>
+    <section class="section" id="servicios">
+      <div class="section-inner">
+        <div class="featured-header reveal">
+          <p class="section-label">Grupo 1 · Más buscados</p>
+          <h2 class="section-title">Estudios de ultrasonido</h2>
+          <p class="section-sub">Los seis estudios con mayor demanda en México, con páginas propias optimizadas para SEO.</p>
+        </div>
+        <div class="featured-grid">
+          <a class="featured-card reveal" href="#ultrasonido-musculoesqueletico">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Articulación / hueso -->
+              <svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg>
+            </div>
+            <h3>Ultrasonido Musculoesquelético</h3>
+            <p>Ecografía de hombro, rodilla, túnel carpiano y lesiones deportivas en tiempo real.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+          <a class="featured-card reveal" href="#ultrasonido-abdominal">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Torso / órganos abdominales -->
+              <svg viewBox="0 0 24 24">
+                <path d="M8 4h8a3 3 0 0 1 3 3v5c0 5-3.5 9-7 9s-7-4-7-9V7a3 3 0 0 1 3-3z"/>
+                <ellipse cx="12" cy="11" rx="3.2" ry="2.4"/>
+                <path d="M7.5 14.5c1.2.8 2.7 1.3 4.5 1.3s3.3-.5 4.5-1.3"/>
+              </svg>
+            </div>
+            <h3>Ultrasonido Abdominal</h3>
+            <p>Para dolor abdominal, piedras en la vesícula, hígado graso y evaluación renal.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+          <a class="featured-card reveal" href="#ultrasonido-ginecologico">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Bebé / obstétrico -->
+              <svg viewBox="0 0 24 24">
+                <path d="M9 12h.01"/><path d="M15 12h.01"/>
+                <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/>
+                <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+              </svg>
+            </div>
+            <h3>Ultrasonido Ginecológico y Obstétrico</h3>
+            <p>Transvaginal, pélvico, control prenatal, morfológico y ultrasonido 4D.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+          <a class="featured-card reveal" href="#ultrasonido-doppler">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Flujo / vasos (ondas Doppler) -->
+              <svg viewBox="0 0 24 24">
+                <path d="M2 12h2.5"/>
+                <path d="M19.5 12H22"/>
+                <path d="M6.5 12c1.5-4 3-4 5.5 0s4 4 5.5 0"/>
+                <path d="M6.5 17c1.5-4 3-4 5.5 0s4 4 5.5 0"/>
+                <path d="M6.5 7c1.5-4 3-4 5.5 0s4 4 5.5 0"/>
+              </svg>
+            </div>
+            <h3>Ultrasonido Doppler Vascular</h3>
+            <p>Ecografía de várices, trombosis venosa, Doppler carotídeo e insuficiencia venosa.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+          <a class="featured-card reveal" href="#ultrasonido-tiroides">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Glándula tiroides (forma de mariposa) -->
+              <svg viewBox="0 0 24 24">
+                <path d="M9.5 7.5c-2.2 0-4 2.1-4 5s2.1 5.5 4.2 5.5c1.4 0 2.3-1 2.8-2.2.5 1.2 1.4 2.2 2.8 2.2 2.1 0 4.2-2.6 4.2-5.5s-1.8-5-4-5c-1.3 0-2.3.8-2.8 1.8-.5-1-1.5-1.8-2.8-1.8z"/>
+                <path d="M12 10.5v6"/>
+              </svg>
+            </div>
+            <h3>Ultrasonido de Tiroides y Cuello</h3>
+            <p>Nódulos tiroideos, bocio, tiroiditis y seguimiento de ganglios cervicales.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+          <a class="featured-card reveal" href="#ultrasonido-mamario">
+            <div class="card-icon" aria-hidden="true">
+              <!-- Listón / mama -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12 11.22C11 9.997 10 9 10 8a2 2 0 0 1 4 0c0 1-.998 2.002-2.01 3.22"/>
+                <path d="m12 18 2.57-3.5"/>
+                <path d="M6.243 9.016a7 7 0 0 1 11.507-.009"/>
+                <path d="M9.35 14.53 12 11.22"/>
+                <path d="M9.35 14.53C7.728 12.246 6 10.221 6 7a6 5 0 0 1 12 0c-.005 3.22-1.778 5.235-3.43 7.5l3.557 4.527a1 1 0 0 1-.203 1.43l-1.894 1.36a1 1 0 0 1-1.384-.215L12 18l-2.679 3.593a1 1 0 0 1-1.39.213l-1.865-1.353a1 1 0 0 1-.203-1.422z"/>
+              </svg>
+            </div>
+            <h3>Ultrasonido Mamario</h3>
+            <p>Evaluación de nódulos; diferencia quiste vs. sólido; complemento de la mastografía.</p>
+            <span class="card-link">Ver detalle</span>
+          </a>
+        </div>
       </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🩺</div>
-          <h3>Consulta General</h3>
-          <p>Evaluación integral del estado de salud, diagnóstico y plan de tratamiento personalizado para cada paciente.</p>
+    </section>
+
+    <section class="section" id="sintomas">
+      <div class="section-inner">
+        <div class="symptoms-header reveal">
+          <p class="section-label">¿Qué te duele?</p>
+          <h2 class="section-title">Encuentra el estudio según tu síntoma</h2>
+          <p class="section-sub">Identifica lo que sientes y te llevamos al ultrasonido adecuado.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🔬</div>
-          <h3>Diagnóstico Clínico</h3>
-          <p>Interpretación de estudios de laboratorio e imagen para un diagnóstico preciso y oportuno.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💊</div>
-          <h3>Seguimiento y Control</h3>
-          <p>Acompañamiento continuo en el tratamiento de enfermedades crónicas y agudas con revisiones periódicas.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🏥</div>
-          <h3>Atención Preventiva</h3>
-          <p>Programas de prevención y chequeos médicos para mantener una salud óptima a lo largo del tiempo.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📋</div>
-          <h3>Orientación Nutricional</h3>
-          <p>Guía nutricional basada en evidencia científica adaptada a las necesidades y objetivos de cada persona.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🚑</div>
-          <h3>Urgencias</h3>
-          <p>Atención de urgencias médicas con respuesta rápida y eficiente para situaciones que requieren atención inmediata.</p>
+        <div class="symptoms-grid">
+          <a class="symptom-card reveal" href="#ultrasonido-musculoesqueletico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg></div>
+            <div><strong>Dolor de hombro al levantar el brazo</strong><span>Ultrasonido musculoesquelético de hombro</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-musculoesqueletico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg></div>
+            <div><strong>Dolor o adormecimiento en mano / muñeca</strong><span>Ultrasonido de muñeca / túnel carpiano</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-musculoesqueletico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg></div>
+            <div><strong>Dolor de rodilla o derrame articular</strong><span>Ultrasonido musculoesquelético de rodilla</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-musculoesqueletico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg></div>
+            <div><strong>Dolor en el talón o planta del pie</strong><span>Ecografía de fascitis plantar / tendón de Aquiles</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-abdominal">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8a3 3 0 0 1 3 3v5c0 5-3.5 9-7 9s-7-4-7-9V7a3 3 0 0 1 3-3z"/><ellipse cx="12" cy="11" rx="3.2" ry="2.4"/><path d="M7.5 14.5c1.2.8 2.7 1.3 4.5 1.3s3.3-.5 4.5-1.3"/></svg></div>
+            <div><strong>Dolor abdominal, náuseas o cólico</strong><span>Ultrasonido abdominal (vesícula, hígado, riñón)</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-ginecologico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg></div>
+            <div><strong>Dolor pélvico o menstruación irregular</strong><span>Ultrasonido ginecológico / transvaginal</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-ginecologico">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg></div>
+            <div><strong>Control de embarazo</strong><span>Ultrasonido obstétrico / morfológico</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-tiroides">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 7.5c-2.2 0-4 2.1-4 5s2.1 5.5 4.2 5.5c1.4 0 2.3-1 2.8-2.2.5 1.2 1.4 2.2 2.8 2.2 2.1 0 4.2-2.6 4.2-5.5s-1.8-5-4-5c-1.3 0-2.3.8-2.8 1.8-.5-1-1.5-1.8-2.8-1.8z"/><path d="M12 10.5v6"/></svg></div>
+            <div><strong>Bulto o nódulo en el cuello</strong><span>Ultrasonido de tiroides</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-mamario">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 11.22C11 9.997 10 9 10 8a2 2 0 0 1 4 0c0 1-.998 2.002-2.01 3.22"/><path d="m12 18 2.57-3.5"/><path d="M6.243 9.016a7 7 0 0 1 11.507-.009"/><path d="M9.35 14.53 12 11.22"/><path d="M9.35 14.53C7.728 12.246 6 10.221 6 7a6 5 0 0 1 12 0c-.005 3.22-1.778 5.235-3.43 7.5l3.557 4.527a1 1 0 0 1-.203 1.43l-1.894 1.36a1 1 0 0 1-1.384-.215L12 18l-2.679 3.593a1 1 0 0 1-1.39.213l-1.865-1.353a1 1 0 0 1-.203-1.422z"/></svg></div>
+            <div><strong>Bulto en el seno / mama</strong><span>Ultrasonido mamario</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-doppler">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12h2.5"/><path d="M19.5 12H22"/><path d="M6.5 12c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 17c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 7c1.5-4 3-4 5.5 0s4 4 5.5 0"/></svg></div>
+            <div><strong>Piernas hinchadas, várices o pesadez</strong><span>Ultrasonido Doppler vascular</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#otros-estudios">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8a3 3 0 0 1 3 3v5c0 5-3.5 9-7 9s-7-4-7-9V7a3 3 0 0 1 3-3z"/><ellipse cx="12" cy="11" rx="3.2" ry="2.4"/><path d="M7.5 14.5c1.2.8 2.7 1.3 4.5 1.3s3.3-.5 4.5-1.3"/></svg></div>
+            <div><strong>Dificultad para orinar / próstata</strong><span>Ultrasonido prostático</span></div>
+          </a>
+          <a class="symptom-card reveal" href="#ultrasonido-doppler">
+            <div class="symptom-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12h2.5"/><path d="M19.5 12H22"/><path d="M6.5 12c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 17c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 7c1.5-4 3-4 5.5 0s4 4 5.5 0"/></svg></div>
+            <div><strong>Dolor testicular</strong><span>Ultrasonido testicular con Doppler</span></div>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <p class="section-label" style="color: var(--gold);">Contacto</p>
-    <h2 class="section-title">¿Listo para agendar su consulta?</h2>
-    <p class="section-sub">Estoy disponible para atenderle y resolver todas sus dudas. No espere más para cuidar su salud.</p>
-    <div class="contact-links">
-      <a href="mailto:contacto@drmarcelomarquez.com" class="btn-outline">✉ Enviar correo</a>
-      <a href="tel:+1234567890" class="btn-outline">📞 Llamar ahora</a>
-      <a href="#" class="btn-primary">Agendar en línea</a>
-    </div>
-  </section>
+    <section class="section" id="ultrasonido-musculoesqueletico" aria-labelledby="ultrasonido-musculoesqueletico-title">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-musculoesqueletico-title">Ultrasonido Musculoesquelético</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido musculoesquelético evalúa en tiempo real músculos, ligamentos, nervios y articulaciones. Es el estudio de primera elección para diagnosticar tendinitis, desgarros del manguito rotador, síndrome del túnel carpiano, bursitis, quistes ganglión y lesiones deportivas. A diferencia de la resonancia magnética, el ultrasonido permite evaluar el movimiento dinámico de las estructuras.</p>
+        <p class="detail-text">Si te preguntas ultrasonido musculoesquelético para qué sirve o cuándo se necesita ultrasonido de hombro: es ideal ante dolor al mover, sospecha de rotura, inflamación o ecografía musculoesquelética por lesión deportiva. El ultrasonido de rodilla qué detecta incluye menisco, ligamentos, derrame y quiste de Baker. También realizamos ultrasonido guiado para infiltración, ultrasonido para dolor de pie por fascitis plantar, ecografía del tendón de Aquiles ante sospecha de rotura, y ultrasonido de cadera en bebé por displasia.</p>
+        <ul class="study-list">
+          <li>Ultrasonido de hombro (manguito rotador, bursitis)</li>
+          <li>Ultrasonido de rodilla (menisco, ligamentos, quiste de Baker)</li>
+          <li>Ultrasonido de muñeca y mano (túnel carpiano, De Quervain)</li>
+          <li>Ultrasonido de tobillo y pie (fascitis plantar, tendón de Aquiles)</li>
+          <li>Ultrasonido de cadera (bursitis, displasia en bebés)</li>
+          <li>Ultrasonido de codo (epicondilitis, nervio cubital)</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20musculoesquel%C3%A9tico" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-musculoesqueletico.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ultrasonido-abdominal" aria-labelledby="ultrasonido-abdominal-title" style="padding-top:0">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8a3 3 0 0 1 3 3v5c0 5-3.5 9-7 9s-7-4-7-9V7a3 3 0 0 1 3-3z"/><ellipse cx="12" cy="11" rx="3.2" ry="2.4"/><path d="M7.5 14.5c1.2.8 2.7 1.3 4.5 1.3s3.3-.5 4.5-1.3"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-abdominal-title">Ultrasonido Abdominal</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido abdominal es el estudio de imagen más utilizado para evaluar los órganos del abdomen. Permite detectar cálculos biliares (piedras en la vesícula), hígado graso, quistes y cálculos renales, hidronefrosis, pancreatitis y alteraciones del bazo. La preparación para ultrasonido abdominal completo incluye ayuno de 4 a 6 horas antes del estudio.</p>
+        <p class="detail-text">También se realiza ultrasonido renal, ecografía de vías urinarias, ultrasonido prostático, ultrasonido de pared abdominal por hernia y rastreo abdominal completo.</p>
+        <ul class="study-list">
+          <li>Ultrasonido hepatobiliar (hígado y vías biliares)</li>
+          <li>Ultrasonido renal y de vías urinarias</li>
+          <li>Ultrasonido de páncreas</li>
+          <li>Ultrasonido de bazo</li>
+          <li>Ultrasonido de pared abdominal (hernias)</li>
+          <li>Rastreo abdominal completo</li>
+          <li>Ultrasonido prostático</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20abdominal" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-abdominal.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ultrasonido-ginecologico" aria-labelledby="ultrasonido-ginecologico-title" style="padding-top:0">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-ginecologico-title">Ultrasonido Ginecológico y Obstétrico</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido ginecológico y transvaginal permite evaluar el útero, los ovarios y las trompas de Falopio. Es el estudio de elección para detectar quistes de ovario, miomas uterinos, endometriosis, pólipos y embarazo ectópico. El ultrasonido transvaginal sin dolor es la norma: puede haber leve incomodidad, no dolor intenso.</p>
+        <p class="detail-text">Durante el embarazo, el ultrasonido obstétrico y morfológico monitorea el desarrollo fetal semana a semana. El ultrasonido morfológico semana 20 (entre la 18 y 22) revisa la anatomía fetal. Te explicamos la diferencia ultrasonido 2D 3D 4D según la necesidad clínica.</p>
+        <ul class="study-list">
+          <li>Ultrasonido transvaginal</li>
+          <li>Ultrasonido pélvico ginecológico</li>
+          <li>Ultrasonido obstétrico (control prenatal)</li>
+          <li>Ultrasonido morfológico (semana 18–22)</li>
+          <li>Ultrasonido 4D</li>
+          <li>Ultrasonido Doppler obstétrico</li>
+          <li>Seguimiento folicular (fertilidad)</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20ginecol%C3%B3gico%20u%20obst%C3%A9trico" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-ginecologico-obstetrico.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ultrasonido-doppler" aria-labelledby="ultrasonido-doppler-title" style="padding-top:0">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12h2.5"/><path d="M19.5 12H22"/><path d="M6.5 12c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 17c1.5-4 3-4 5.5 0s4 4 5.5 0"/><path d="M6.5 7c1.5-4 3-4 5.5 0s4 4 5.5 0"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-doppler-title">Ultrasonido Doppler Vascular</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido Doppler evalúa el flujo sanguíneo en arterias y venas. Es el estudio de primera elección para diagnosticar trombosis venosa profunda, insuficiencia venosa, várices, obstrucciones arteriales y arteriosclerosis carotídea. El ultrasonido Doppler para várices no requiere preparación especial.</p>
+        <p class="detail-text">También se realiza Doppler testicular para varicocele y evaluación de dolor testicular, además de Doppler obstétrico cuando está indicado.</p>
+        <ul class="study-list">
+          <li>Doppler venoso de extremidades inferiores (várices, trombosis)</li>
+          <li>Doppler arterial de extremidades</li>
+          <li>Doppler de carótidas (riesgo de ACV)</li>
+          <li>Doppler color</li>
+          <li>Doppler testicular (varicocele)</li>
+          <li>Doppler obstétrico</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20Doppler" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-doppler-vascular.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ultrasonido-tiroides" aria-labelledby="ultrasonido-tiroides-title" style="padding-top:0">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 7.5c-2.2 0-4 2.1-4 5s2.1 5.5 4.2 5.5c1.4 0 2.3-1 2.8-2.2.5 1.2 1.4 2.2 2.8 2.2 2.1 0 4.2-2.6 4.2-5.5s-1.8-5-4-5c-1.3 0-2.3.8-2.8 1.8-.5-1-1.5-1.8-2.8-1.8z"/><path d="M12 10.5v6"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-tiroides-title">Ultrasonido de Tiroides y Cuello</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido tiroideo de alta resolución es el estudio más preciso para evaluar la glándula tiroides, detectar nódulos tiroideos, bocio, tiroiditis y ganglios linfáticos del cuello. En la ecografía tiroides nódulo benigno maligno se valoran características de imagen que orientan el seguimiento o la biopsia.</p>
+        <p class="detail-text">Es indispensable en el seguimiento de pacientes con hipotiroidismo, hipertiroidismo y nódulos palpables.</p>
+        <ul class="study-list">
+          <li>Ultrasonido tiroideo alta resolución</li>
+          <li>Ultrasonido de cuello (tiroides + ganglios)</li>
+          <li>Ecografía cervical completa</li>
+          <li>Seguimiento de nódulos tiroideos</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20de%20tiroides" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-tiroides.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ultrasonido-mamario" aria-labelledby="ultrasonido-mamario-title" style="padding-top:0">
+      <div class="section-inner service-detail glass reveal">
+        <div class="detail-head">
+          <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 11.22C11 9.997 10 9 10 8a2 2 0 0 1 4 0c0 1-.998 2.002-2.01 3.22"/><path d="m12 18 2.57-3.5"/><path d="M6.243 9.016a7 7 0 0 1 11.507-.009"/><path d="M9.35 14.53 12 11.22"/><path d="M9.35 14.53C7.728 12.246 6 10.221 6 7a6 5 0 0 1 12 0c-.005 3.22-1.778 5.235-3.43 7.5l3.557 4.527a1 1 0 0 1-.203 1.43l-1.894 1.36a1 1 0 0 1-1.384-.215L12 18l-2.679 3.593a1 1 0 0 1-1.39.213l-1.865-1.353a1 1 0 0 1-.203-1.422z"/></svg></div>
+          <div>
+            <p class="section-label">Dr. Marcelo Márquez</p>
+            <h2 id="ultrasonido-mamario-title">Ultrasonido Mamario</h2>
+          </div>
+        </div>
+        <p class="detail-text">El ultrasonido mamario (ecografía de seno) evalúa nódulos, diferencia quistes de lesiones sólidas y es especialmente útil en mamas densas. Complementa —no sustituye— a la mastografía: la mastografía detecta microcalcificaciones; el ultrasonido caracteriza mejor los nódulos palpables.</p>
+        <p class="detail-text">Si hay un bulto en el seno o tu médico solicitó ecografía mamaria, agenda tu estudio para una evaluación precisa el mismo día.</p>
+        <ul class="study-list">
+          <li>Ultrasonido mamario bilateral</li>
+          <li>Evaluación de nódulo en mama</li>
+          <li>Complemento de mastografía</li>
+          <li>Seguimiento de hallazgos benignos</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a class="btn btn-primary btn-sm" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20ultrasonido%20mamario" target="_blank" rel="noopener noreferrer">Agendar este estudio</a>
+          <a class="btn btn-ghost btn-sm" href="servicios/ultrasonido-mamario.html">Página del servicio</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
+
+    <section class="section" id="otros-estudios">
+      <div class="section-inner">
+        <div class="featured-header reveal">
+          <p class="section-label">Grupo 2 · Alta demanda</p>
+          <h2 class="section-title">Otros estudios frecuentes</h2>
+          <p class="section-sub">Servicios secundarios con alta búsqueda local: renal, prostático, testicular y ecografías por región anatómica.</p>
+        </div>
+        <div class="secondary-grid">
+          <a class="secondary-card reveal" href="servicios/ultrasonido-abdominal.html"><h3>Ultrasonido Renal</h3><p>Ecografía de riñones, vías urinarias y cálculos renales.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-abdominal.html"><h3>Ultrasonido Prostático</h3><p>Ultrasonido prostático y evaluación de vías urinarias.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-doppler-vascular.html"><h3>Ultrasonido Testicular</h3><p>Ecografía testicular y Doppler por varicocele.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-musculoesqueletico.html"><h3>Ultrasonido de Hombro</h3><p>Manguito rotador, bursitis y dolor al elevar el brazo.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-musculoesqueletico.html"><h3>Ultrasonido de Rodilla</h3><p>Menisco, ligamentos, derrame y quiste de Baker.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-musculoesqueletico.html"><h3>Ultrasonido de Tobillo / Pie</h3><p>Fascitis plantar, tendón de Aquiles y espolón.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-musculoesqueletico.html"><h3>Ultrasonido de Mano / Muñeca</h3><p>Túnel carpiano y tendinitis de De Quervain.</p></a>
+          <a class="secondary-card reveal" href="servicios/ultrasonido-abdominal.html"><h3>Pared abdominal / Hernia</h3><p>Ultrasonido de pared abdominal para hernias.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-inner about-panel glass">
+        <div class="about-grid">
+          <div class="reveal">
+            <p class="section-label">Sobre mí</p>
+            <h2 class="section-title">Especialista en ultrasonido diagnóstico</h2>
+            <p class="section-sub">
+              Soy el Dr. Marcelo Márquez Cruz. Realizo ultrasonido diagnóstico e intervencionismo guiado en Mérida: ecografía musculoesquelética, abdominal, ginecológica, obstétrica, Doppler, tiroides y mama. Explico cada hallazgo con claridad y entrego resultados el mismo día.
+            </p>
+            <p class="about-meta">Céd. Prof. <span>09126837</span> · Atención en Mérida, Yucatán</p>
+            <div class="about-metrics">
+              <div class="metric-chip reveal">
+                <strong class="stat-number" data-target="6" data-suffix="+">0</strong>
+                <span>estudios principales</span>
+              </div>
+              <div class="metric-chip reveal">
+                <strong class="stat-number" data-target="15" data-suffix=" min">0</strong>
+                <span>duración típica desde</span>
+              </div>
+              <div class="metric-chip reveal">
+                <strong class="stat-number" data-target="100" data-suffix="%">0</strong>
+                <span>sin radiación</span>
+              </div>
+              <div class="metric-chip reveal">
+                <strong class="stat-number" data-target="1" data-suffix=" día">0</strong>
+                <span>resultados</span>
+              </div>
+            </div>
+          </div>
+          <figure class="about-photo reveal">
+            <img src="assets/images/about-certificacion.png" alt="Dr. Marcelo Márquez Cruz con constancia de formación en medicina musculoesquelética" width="800" height="1000" loading="lazy" />
+            <figcaption>Formación continua en imagen e intervencionismo</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-inner">
+        <div class="gallery-header reveal">
+          <p class="section-label">Galería</p>
+          <h2 class="section-title">Consulta, formación y procedimiento</h2>
+          <p class="section-sub">Un vistazo al trabajo clínico y la capacitación continua.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item gallery-item--tall reveal">
+            <img src="assets/images/galeria-procedimiento.png" alt="Preparación estéril para procedimiento de ultrasonido guiado" width="800" height="1000" loading="lazy" />
+            <figcaption>Preparación de procedimiento</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="assets/images/galeria-formacion.png" alt="Formación con equipo de ultrasonido diagnóstico" width="800" height="1000" loading="lazy" />
+            <figcaption>Formación en imagen</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="assets/images/galeria-congreso.png" alt="Dr. Marcelo Márquez en evento médico profesional" width="800" height="1000" loading="lazy" />
+            <figcaption>Comunidad médica</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--wide reveal">
+            <img src="assets/images/hero-consulta.png" alt="Consulta de ultrasonido e intervencionismo guiado" width="1400" height="800" loading="lazy" />
+            <figcaption>Consulta e intervencionismo guiado</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="assets/images/about-certificacion.png" alt="Certificación en medicina musculoesquelética" width="800" height="1000" loading="lazy" />
+            <figcaption>Certificación y actualización</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-inner">
+        <div class="reveal" style="margin-bottom:2rem">
+          <p class="section-label">Preguntas frecuentes</p>
+          <h2 class="section-title">Lo que más preguntan mis pacientes</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal"><summary>¿Para qué sirve el ultrasonido?</summary><div class="faq-answer">El ultrasonido usa ondas sonoras para crear imágenes de órganos y tejidos. Es seguro, no usa radiación y permite diagnósticos precisos en tiempo real.</div></details>
+          <details class="faq-item reveal"><summary>¿El ultrasonido usa radiación? ¿Es peligroso?</summary><div class="faq-answer">No. Es completamente seguro, sin radiación. Puede realizarse en embarazadas y niños sin riesgo.</div></details>
+          <details class="faq-item reveal"><summary>¿Cómo prepararme para un ultrasonido abdominal?</summary><div class="faq-answer">Ayuno de 4 a 6 horas. Para ultrasonido pélvico, llegar con vejiga llena (1 litro de agua 1 hora antes).</div></details>
+          <details class="faq-item reveal"><summary>¿Cuánto tiempo dura un ultrasonido?</summary><div class="faq-answer">Entre 15 y 45 minutos dependiendo del estudio.</div></details>
+          <details class="faq-item reveal"><summary>¿Cuál es la diferencia entre ultrasonido y resonancia magnética?</summary><div class="faq-answer">El ultrasonido es más rápido, económico y sin radiación. La resonancia ofrece mayor detalle en estructuras profundas. Son complementarios.</div></details>
+          <details class="faq-item reveal"><summary>¿Cuál es la diferencia entre mastografía y ultrasonido mamario?</summary><div class="faq-answer">La mastografía detecta microcalcificaciones. El ultrasonido diferencia quistes de tumores sólidos y es mejor para mamas densas. Son complementarios.</div></details>
+          <details class="faq-item reveal"><summary>¿El ultrasonido transvaginal duele?</summary><div class="faq-answer">Es un procedimiento indoloro. Puede causar leve incomodidad, pero no dolor.</div></details>
+          <details class="faq-item reveal"><summary>¿Cuándo hacerse un ultrasonido de tiroides?</summary><div class="faq-answer">Cuando hay un nódulo palpable en el cuello, alteraciones en exámenes hormonales, bocio o antecedentes familiares de cáncer tiroideo.</div></details>
+          <details class="faq-item reveal"><summary>¿Qué detecta el ultrasonido Doppler?</summary><div class="faq-answer">Evalúa el flujo sanguíneo. Detecta trombosis venosa, várices, obstrucciones arteriales e insuficiencia venosa.</div></details>
+          <details class="faq-item reveal"><summary>¿Se necesita cita previa?</summary><div class="faq-answer">Sí. Agenda por WhatsApp al 999 201 0898 para garantizar disponibilidad.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner contact-shell">
+        <div class="reveal">
+          <p class="section-label">Contacto y ubicación</p>
+          <h2 class="section-title">Agenda tu ultrasonido</h2>
+          <p class="section-sub">Atención en <strong>Ultrasonido Biogamma</strong>, Mérida, Yucatán. Escríbeme o llama para coordinar tu estudio. Resultados el mismo día.</p>
+          <a class="contact-location" href="https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            Ver en Google Maps
+          </a>
+          <a class="contact-phone" href="tel:+529992010898">999 201 0898</a>
+          <p class="contact-meta">Ced. Prof. 09126837 · Ultrasonido diagnóstico</p>
+        </div>
+        <div class="contact-actions reveal">
+          <a href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20un%20ultrasonido" class="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="tel:+529992010898" class="btn btn-primary">Llamar ahora</a>
+          <a href="https://www.google.com/maps/place/Ultrasonido+Biogamma/data=!4m2!3m1!1s0x0:0x4ec875aa60bc1566" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+          <a href="mailto:contacto@drmarcelomarquez.com" class="btn btn-outline">Enviar correo</a>
+        </div>
+        <div class="contact-map reveal">
+          <iframe
+            title="Ubicación de Ultrasonido Biogamma en Google Maps"
+            src="https://maps.google.com/maps?cid=5676916704928339302&hl=es-MX&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <p>&copy; 2026 <span>Dr. Marcelo Márquez</span>. Todos los derechos reservados.</p>
+    <p>&copy; <span id="year">2026</span> <span>Dr. Marcelo Márquez Cruz</span>. Ced. Prof. 09126837. Mérida, Yucatán.</p>
+    <p>Ultrasonido diagnóstico · Sin radiación</p>
   </footer>
 
+  <a class="wa-float" href="https://wa.me/529992010898?text=Hola%2C%20quiero%20agendar%20un%20ultrasonido" target="_blank" rel="noopener noreferrer" aria-label="Agendar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.84c0 2.09.55 4.12 1.6 5.92L0 24l6.4-1.67a11.8 11.8 0 0 0 5.66 1.44h.01c6.55 0 11.86-5.3 11.86-11.83 0-3.16-1.23-6.13-3.43-8.44zm-8.43 18.2h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.8 1 1.01-3.7-.23-.38a9.8 9.8 0 0 1-1.5-5.22c0-5.43 4.43-9.85 9.88-9.85a9.8 9.8 0 0 1 9.86 9.86c0 5.43-4.43 9.87-9.85 9.87zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
