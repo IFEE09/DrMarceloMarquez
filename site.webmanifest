@@ -1,0 +1,31 @@
+{
+  "name": "Dr. Marcelo Márquez | Ultrasonido Diagnóstico",
+  "short_name": "Dr. Márquez",
+  "description": "Ultrasonido diagnóstico en Mérida, Yucatán. Resultados el mismo día.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef3f7",
+  "theme_color": "#1e3a5f",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
