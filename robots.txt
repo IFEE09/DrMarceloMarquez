@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap principal
-Sitemap: https://drmarcelomarquez.com/sitemap.xml
+Sitemap: https://ifee09.github.io/DrMarceloMarquez/sitemap.xml
