@@ -45,7 +45,7 @@
       color: var(--ink);
       line-height: 1.6;
       overflow-x: hidden;
-      animation: pageLoad 0.4s ease forwards;
+      animation: pageLoad 0.15s ease forwards;
     }
     @keyframes pageLoad {
       from { opacity: 0; }
@@ -632,6 +632,21 @@
       background: rgba(255, 255, 255, 0.12);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
+    .map-facade {
+      width: 100%; height: 100%; border: 0; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.4rem; padding: 1rem; font-family: inherit;
+      background: rgba(255, 255, 255, 0.14); color: var(--white);
+      transition: background 0.25s;
+    }
+    .map-facade:hover { background: rgba(255, 255, 255, 0.22); }
+    .map-facade svg {
+      width: 2rem; height: 2rem; stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+      margin-bottom: 0.25rem;
+    }
+    .map-facade strong { font-size: 1rem; font-weight: 600; }
+    .map-facade span { font-size: 0.82rem; color: rgba(255, 255, 255, 0.75); }
     .contact-map iframe {
       width: 100%;
       height: 100%;
@@ -752,6 +767,15 @@
     }
 
     /* Stagger base: delays se asignan desde JS (80ms) */
+
+    /* Móvil: blobs estáticos y blur menor — rendering más barato */
+    @media (max-width: 600px) {
+      body::before, body::after {
+        animation: none;
+        filter: blur(40px);
+        will-change: auto;
+      }
+    }
 
     /* RESPONSIVE */
     @media (max-width: 960px) {
