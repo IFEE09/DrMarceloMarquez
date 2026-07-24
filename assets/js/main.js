@@ -36,12 +36,28 @@
       if (mqNav.addEventListener) mqNav.addEventListener('change', onNavBreakpoint);
       else mqNav.addListener(onNavBreakpoint);
 
-      window.addEventListener('scroll', function () {
+      var progressBar = document.getElementById('scroll-progress');
+      var scrollTicking = false;
+      function onScroll() {
         header.classList.toggle('is-scrolled', window.scrollY > 60);
+        if (progressBar) {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - doc.clientHeight;
+          var ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+          progressBar.style.transform = 'scaleX(' + ratio + ')';
+        }
+        scrollTicking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!scrollTicking) {
+          window.requestAnimationFrame(onScroll);
+          scrollTicking = true;
+        }
       }, { passive: true });
+      onScroll();
 
       /* Stagger 80ms en grids de tarjetas */
-      ['.featured-card', '.symptom-card', '.secondary-card', '.gallery-item', '.metric-chip'].forEach(function (sel) {
+      ['.featured-card', '.symptom-card', '.secondary-card', '.gallery-item', '.metric-chip', '.process-step'].forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (card, i) {
           card.style.transitionDelay = (i * 80) + 'ms';
         });
