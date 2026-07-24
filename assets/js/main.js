@@ -312,29 +312,31 @@
           resizeTimer = setTimeout(function () { setIndex(index); }, 120);
         }, { passive: true });
 
-        /* Pausar solo fuera de vista; al volver, reanudar (estado default = play) */
+        /* Estado visual inicial SIN cargar ni reproducir video */
+        userPaused = false;
+        inView = false;
+        setIndex(0);
+        syncToggleLabel();
+
+        /* Carga y reproducción diferidas: nada de video se descarga hasta que
+           la sección entra en vista. Al salir de vista, se pausa. */
         if ('IntersectionObserver' in window) {
           var ioReel = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
               inView = entry.isIntersecting;
-              if (inView) playActive();
-              else pauseAll();
+              if (inView) {
+                playActive();
+                setTimeout(playActive, 300);
+              } else {
+                pauseAll();
+              }
             });
-          }, { threshold: 0.15, rootMargin: '120px 0px' });
+          }, { threshold: 0.15, rootMargin: '200px 0px' });
           ioReel.observe(shell);
+        } else {
+          /* Sin IntersectionObserver (navegador antiguo): reproducir de inmediato */
+          inView = true;
+          playActive();
         }
-
-        /* Arranque inmediato al cargar la página */
-        cards.forEach(function (card) {
-          ensureSrc(card.querySelector('video'));
-        });
-        userPaused = false;
-        inView = true;
-        setIndex(0);
-        syncToggleLabel();
-        playActive();
-        /* Reintento corto por si el navegador bloquea el primer play() */
-        setTimeout(playActive, 250);
-        setTimeout(playActive, 1000);
       })();
     })();
