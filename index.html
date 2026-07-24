@@ -742,47 +742,6 @@
     </a>
   </div>
 
-  <!-- Cursor personalizado estilo Vicio -->
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
   <script src="assets/js/main.js"></script>
-  <script>
-  (function(){
-    var dot = document.getElementById('cursor-dot');
-    var ring = document.getElementById('cursor-ring');
-    if (!dot || !ring) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var mx = -100, my = -100, rx = -100, ry = -100;
-    /* Anillo: lerp bajo = más lento. Punto: sin lerp (instantáneo). */
-    var RING_EASE = 0.07;
-
-    document.addEventListener('mousemove', function(e){
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
-    }, { passive: true });
-
-    (function loop(){
-      rx += (mx - rx) * RING_EASE;
-      ry += (my - ry) * RING_EASE;
-      ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
-      requestAnimationFrame(loop);
-    })();
-
-    var hoverEls = document.querySelectorAll('a, button, [role="button"], summary, .featured-card, .symptom-card, .secondary-card, .float-cta__book, .wa-float');
-    hoverEls.forEach(function(el){
-      el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
-      el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
-    });
-
-    document.querySelectorAll('.statement-section, .ticker, .contact-shell').forEach(function(el){
-      el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-on-dark'); });
-      el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-on-dark'); });
-    });
-  })();
-  </script>
 </body>
 </html>

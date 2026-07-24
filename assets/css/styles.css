@@ -915,8 +915,8 @@
 
     /* ── Cursor personalizado ── */
     @media (pointer: fine) {
-      body { cursor: none; }
-      a, button, [role="button"], summary { cursor: none; }
+      html.js body { cursor: none; }
+      html.js a, html.js button, html.js [role="button"], html.js summary { cursor: none; }
       .cursor-dot {
         position: fixed; top: 0; left: 0; z-index: 9999;
         width: 8px; height: 8px; border-radius: 50%;
@@ -957,7 +957,7 @@
     }
 
     @media (pointer: fine) and (prefers-reduced-motion: reduce) {
-      body, a, button, [role="button"], summary { cursor: auto; }
+      html.js body, html.js a, html.js button, html.js [role="button"], html.js summary { cursor: auto; }
       .cursor-dot, .cursor-ring { display: none; }
     }
 
