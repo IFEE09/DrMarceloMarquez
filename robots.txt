@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ifee09.github.io/DrMarceloMarquez/sitemap.xml
+# Sitemap principal
+Sitemap: https://drmarcelomarquez.com/sitemap.xml

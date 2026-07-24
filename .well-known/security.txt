@@ -1,0 +1,6 @@
+Contact: mailto:contacto@drmarcelomarquez.com
+Contact: https://ifee09.github.io/DrMarceloMarquez/#contact
+Expires: 2027-07-24T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://ifee09.github.io/DrMarceloMarquez/.well-known/security.txt
+Policy: https://ifee09.github.io/DrMarceloMarquez/
