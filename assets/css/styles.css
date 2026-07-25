@@ -776,12 +776,12 @@
 
     /* Stagger base: delays se asignan desde JS (80ms) */
 
-    /* Móvil: blobs estáticos y blur menor — rendering más barato */
+    /* Móvil: sin blobs con blur — alivia memoria/GPU en iOS Safari
+       (los blur de pantalla completa son la causa más común del
+       "WebKit encontró un error interno" por presión de memoria) */
     @media (max-width: 600px) {
       body::before, body::after {
-        animation: none;
-        filter: blur(40px);
-        will-change: auto;
+        display: none;
       }
     }
 
