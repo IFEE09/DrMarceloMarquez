@@ -877,7 +877,7 @@
       .hero, .section, footer { padding-left: 4%; padding-right: 4%; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn { width: 100%; }
-      .hero-visual { height: 280px; min-height: 280px; }
+      .hero-visual { height: min(70vw, 500px); min-height: 400px; }
       .hero-kicker { font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 0.85rem; }
       .hero-brand { font-size: clamp(1.55rem, 7vw, 1.95rem); margin-bottom: 0.9rem; }
       .hero-lead { font-size: 0.95rem; margin-bottom: 1.35rem; }
