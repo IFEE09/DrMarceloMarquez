@@ -465,6 +465,11 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.5rem;
       margin: 1.5rem 0 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line);
     }
+    .study-list + .btn,
+    .study-list + a.btn,
+    .study-list + div:has(> .btn) {
+      margin-top: 0.25rem;
+    }
     .study-list li {
       position: relative; padding-left: 1rem; font-size: 0.92rem; color: var(--ink-soft);
     }
@@ -848,7 +853,7 @@
       .contact-map { height: min(280px, 55vw); min-height: 200px; width: 100%; max-width: 100%; }
       .contact-actions { width: 100%; min-width: 0; }
       .page-hero { padding-top: calc(var(--nav-h) + 1.75rem); padding-left: 4%; padding-right: 4%; }
-      .page-hero-inner { padding: 1.35rem 1.2rem 1.5rem; border-radius: 22px; }
+      .page-hero-inner { padding: 1.35rem 1.2rem 2rem; border-radius: 22px; }
       .detail-head { gap: 0.75rem; }
       .float-cta { right: 0.85rem; bottom: 0.85rem; gap: 0.5rem; }
       .float-cta__book {
@@ -890,7 +895,7 @@
       .detail-icon { width: 44px; height: 44px; border-radius: 14px; }
       .detail-icon svg { width: 22px; height: 22px; }
       .page-hero .breadcrumb { font-size: 0.78rem; line-height: 1.45; overflow-wrap: anywhere; }
-      .service-hero-img { margin-top: 1.5rem; border-radius: 0.85rem; }
+      .service-hero-img { margin: 1.5rem 0 1.5rem; border-radius: 0.85rem; }
       .service-hero-img img { max-height: 260px; border-radius: 0.85rem; }
       footer { flex-direction: column; align-items: flex-start; gap: 0.35rem; padding-bottom: 6.5rem; }
       .float-cta__book { font-size: 0.72rem; padding: 0 0.9rem 0 1rem; }
@@ -1014,6 +1019,15 @@
     .page-hero-inner {
       max-width: 800px; margin: 0 auto; border-radius: 28px;
       padding: clamp(1.5rem, 4vw, 2.75rem);
+      padding-bottom: clamp(1.85rem, 4.5vw, 3rem);
+    }
+    /* CTAs al final del hero de servicio: aire sobre/bajo el botón */
+    .page-hero-inner > .btn,
+    .page-hero-inner > a.btn {
+      margin-top: 1.5rem;
+    }
+    .page-hero-inner > div:has(> .btn) {
+      margin-top: 1.5rem;
     }
     .page-hero .breadcrumb {
       font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem;
@@ -1261,12 +1275,17 @@
 
     /* ── Service Hero Image ─────────────────────────────── */
     .service-hero-img {
-      margin: 2rem 0 0;
+      margin: 2rem 0 1.75rem;
       border-radius: 1rem;
       overflow: hidden;
       line-height: 0;
       width: 100%;
       max-width: 100%;
+    }
+    .service-hero-img + .btn,
+    .service-hero-img + a.btn,
+    .service-hero-img + div:has(> .btn) {
+      margin-top: 0;
     }
     .service-hero-img img {
       width: 100%;
