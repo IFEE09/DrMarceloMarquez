@@ -54,4 +54,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-reumatologico.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-tejidos-blandos-hernias.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-testicular-escrotal.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-higado-vias-biliares.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-renal.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/neurointervencionismo-ecoguiado.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-doppler-hepatico.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ifee09.github.io/DrMarceloMarquez/servicios/ultrasonido-doppler-venoso-mmii.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
