@@ -125,11 +125,11 @@
       z-index: 100; width: min(1120px, calc(100% - 2rem)); height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 1.25rem 0 1.5rem; border-radius: 999px;
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 8px 32px rgba(26, 27, 30, 0.08);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(20px) saturate(1.5);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 8px 32px rgba(26, 27, 30, 0.10);
       transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, height 0.35s ease;
     }
     .site-header.is-scrolled {
@@ -1667,11 +1667,11 @@
   margin: 0 auto;
   padding: clamp(1.6rem, 4vw, 2.75rem);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(var(--blur)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 18px 50px rgba(62, 83, 102, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(1.6);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.07);
 }
 .prep-hero__lead {
   font-family: 'Source Serif 4', Georgia, serif;
