@@ -1039,54 +1039,6 @@
        Se agregan sobre el diseño existente sin romperlo
     ═══════════════════════════════════════════════ */
 
-    /* ── Cursor personalizado ── */
-    @media (pointer: fine) {
-      html.js body { cursor: none; }
-      html.js a, html.js button, html.js [role="button"], html.js summary { cursor: none; }
-      .cursor-dot {
-        position: fixed; top: 0; left: 0; z-index: 9999;
-        width: 8px; height: 8px; border-radius: 50%;
-        background: var(--ink);
-        transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
-        pointer-events: none;
-        transition: background 0.2s ease, width 0.2s ease, height 0.2s ease;
-        will-change: transform;
-      }
-      .cursor-ring {
-        position: fixed; top: 0; left: 0; z-index: 9998;
-        width: 36px; height: 36px; border-radius: 50%;
-        border: 1.5px solid rgba(62, 83, 102, 0.45);
-        transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
-        pointer-events: none;
-        transition: width 0.25s ease, height 0.25s ease, border-color 0.2s ease, opacity 0.2s ease;
-        will-change: transform;
-      }
-      body.cursor-hover .cursor-dot {
-        width: 12px; height: 12px; background: var(--gold);
-      }
-      body.cursor-hover .cursor-ring {
-        width: 52px; height: 52px; border-color: rgba(210, 192, 154, 0.7);
-      }
-      /* Cursor claro sobre fondos oscuros (statement, ticker, contacto) */
-      body.cursor-on-dark .cursor-dot {
-        background: #ffffff;
-      }
-      body.cursor-on-dark .cursor-ring {
-        border-color: rgba(255, 255, 255, 0.55);
-      }
-      body.cursor-on-dark.cursor-hover .cursor-dot {
-        background: var(--gold);
-      }
-      body.cursor-on-dark.cursor-hover .cursor-ring {
-        border-color: rgba(226, 212, 181, 0.85);
-      }
-    }
-
-    @media (pointer: fine) and (prefers-reduced-motion: reduce) {
-      html.js body, html.js a, html.js button, html.js [role="button"], html.js summary { cursor: auto; }
-      .cursor-dot, .cursor-ring { display: none; }
-    }
-
     /* ── Ticker oscuro estilo Vicio (reemplaza el ticker claro) ── */
     .ticker {
       background: var(--ink) !important;

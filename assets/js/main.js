@@ -166,49 +166,6 @@
         }, { once: true });
       });
 
-      /* Cursor personalizado — corre en todas las páginas */
-      (function () {
-        if (!window.matchMedia('(pointer: fine)').matches) return;
-        if (reduceMotion) return;
-        if (document.querySelector('.cursor-dot')) return;
-
-        var dot = document.createElement('div');
-        dot.className = 'cursor-dot';
-        dot.setAttribute('aria-hidden', 'true');
-        var ring = document.createElement('div');
-        ring.className = 'cursor-ring';
-        ring.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(dot);
-        document.body.appendChild(ring);
-
-        var mx = -100, my = -100, rx = -100, ry = -100;
-        var RING_EASE = 0.07;
-
-        document.addEventListener('mousemove', function (e) {
-          mx = e.clientX;
-          my = e.clientY;
-          dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
-        }, { passive: true });
-
-        (function loop() {
-          rx += (mx - rx) * RING_EASE;
-          ry += (my - ry) * RING_EASE;
-          ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
-          requestAnimationFrame(loop);
-        })();
-
-        var hoverEls = document.querySelectorAll('a, button, [role="button"], summary, .featured-card, .symptom-card, .secondary-card, .float-cta__book, .wa-float');
-        hoverEls.forEach(function (el) {
-          el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-hover'); });
-          el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-hover'); });
-        });
-
-        document.querySelectorAll('.statement-section, .ticker, .contact-shell').forEach(function (el) {
-          el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-on-dark'); });
-          el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-on-dark'); });
-        });
-      })();
-
       /* Video reel: default = reproducir al entrar */
       (function () {
         var shell = document.querySelector('[data-video-reel]');
