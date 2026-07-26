@@ -65,16 +65,16 @@
     }
 
     body::before {
-      width: 65vw; height: 65vw;
-      top: -5vh; right: -5vw;
-      background: radial-gradient(circle, #c5d8e4 0%, transparent 70%);
+      width: 50vw; height: 50vw;
+      top: -10vh; right: 5vw;
+      background: radial-gradient(circle, #c5d8e4 0%, transparent 65%);
       animation: blob-drift-a 28s ease-in-out infinite alternate;
     }
 
     body::after {
-      width: 60vw; height: 60vw;
-      bottom: 5vh; left: -5vw;
-      background: radial-gradient(circle, #d4e4ee 0%, transparent 70%);
+      width: 46vw; height: 46vw;
+      bottom: 0vh; left: 8vw;
+      background: radial-gradient(circle, #d4e4ee 0%, transparent 65%);
       animation: blob-drift-b 34s ease-in-out infinite alternate;
     }
 
