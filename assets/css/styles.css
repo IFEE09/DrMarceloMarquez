@@ -1542,3 +1542,73 @@
       .joint-grid { grid-template-columns: 1fr; }
     }
 
+
+/* ─── ACORDEÓN DE INDICACIONES ─────────────────────────────────────────────── */
+.indicaciones-accordion {
+  margin: 1.5rem 0 1.75rem;
+  border: 1.5px solid rgba(210, 192, 154, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(210, 192, 154, 0.06);
+  transition: border-color 0.3s ease;
+}
+.indicaciones-accordion[open] { border-color: rgba(210, 192, 154, 0.75); }
+.indicaciones-accordion summary {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.2rem; cursor: pointer;
+  font-size: 0.95rem; color: var(--gold);
+  list-style: none; user-select: none;
+  transition: background 0.2s ease;
+}
+.indicaciones-accordion summary::-webkit-details-marker { display: none; }
+.indicaciones-accordion summary:hover { background: rgba(210, 192, 154, 0.09); }
+.indicaciones-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  border: 1.5px solid var(--gold); border-radius: 50%;
+  font-size: 1.1rem; font-weight: 700; line-height: 1; flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+.indicaciones-accordion[open] .indicaciones-icon {
+  transform: rotate(45deg);
+  background: var(--gold); color: #fff;
+}
+.indicaciones-body {
+  padding: 0.25rem 1.2rem 1.2rem;
+  font-size: 0.9rem; line-height: 1.65;
+  color: var(--ink-soft);
+  border-top: 1px solid rgba(210, 192, 154, 0.22);
+}
+.indicaciones-body p { margin: 0.75rem 0 0.4rem; }
+.indicaciones-body .study-list { margin: 0.25rem 0 0.5rem 1rem; }
+.indicaciones-body a { color: var(--gold); text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) {
+  .indicaciones-accordion summary, .indicaciones-icon { transition: none; }
+}
+
+/* ─── SECONDARY GRID (páginas de servicio) ──────────────────────────────────── */
+.secondary-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem;
+}
+.secondary-card {
+  border-radius: 18px; padding: 1.25rem 1.15rem; text-decoration: none; color: inherit;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 24px rgba(26, 27, 30, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: block;
+}
+.secondary-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(210, 192, 154, 0.35);
+  box-shadow: 0 16px 40px rgba(62, 83, 102, 0.12);
+}
+.secondary-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1rem;
+  color: var(--ink); margin-bottom: 0.35rem;
+}
+.secondary-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+@media (max-width: 700px) {
+  .secondary-grid { grid-template-columns: 1fr; }
+}
