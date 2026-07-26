@@ -1,5 +1,27 @@
 User-agent: *
 Allow: /
 
+# Bloqueo de crawlers de entrenamiento de IA (no afecta buscadores ni SEO)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
 # Sitemap principal
 Sitemap: https://ifee09.github.io/DrMarceloMarquez/sitemap.xml
