@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Tras iniciar un push: programa el refresco de caché de GitHub Pages en background.
+# (Git no tiene hook post-push en el cliente; este corre al final del pre-push y espera al deploy.)
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+LOG="${ROOT}/.git/pages-refresh.log"
+
+# Consumir refs del stdin (requerido por el protocolo pre-push)
+while read -r _local_ref _local_sha _remote_ref _remote_sha; do
+  :
+done
+
+(
+  # Dejar que termine el push + build de Pages
+  sleep 20
+  PAGES_URL="${PAGES_URL:-https://ifee09.github.io/DrMarceloMarquez}" \
+    "$ROOT/scripts/refresh-pages-cache.sh"
+) >"$LOG" 2>&1 &
+
+echo "pre-push: refresh de caché Pages en background (log: .git/pages-refresh.log)"
+exit 0

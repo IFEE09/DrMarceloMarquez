@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Antes de cada commit: estampa ?v=hash en CSS/JS y re-agrega los HTML tocados.
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+"$ROOT/scripts/cache-bust.sh"
+
+# Si el bust modificó HTML, incluirlos en este commit
+changed="$(git diff --name-only -- '*.html' || true)"
+if [[ -n "$changed" ]]; then
+  # shellcheck disable=SC2086
+  git add -- $changed
+  echo "pre-commit: HTML con cache-bust añadidos al commit"
+fi
