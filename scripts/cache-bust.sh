@@ -7,6 +7,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 CSS="$ROOT/assets/css/styles.css"
+FONTS_CSS="$ROOT/assets/fonts/google-fonts.css"
 JS="$ROOT/assets/js/main.js"
 
 if [[ ! -f "$CSS" || ! -f "$JS" ]]; then
@@ -17,6 +18,7 @@ fi
 HASH="$(
   {
     shasum -a 256 "$CSS"
+    shasum -a 256 "$FONTS_CSS" 2>/dev/null || true
     shasum -a 256 "$JS"
   } | shasum -a 256 | cut -c1-10
 )"

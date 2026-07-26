@@ -11,35 +11,37 @@
       var menu = document.getElementById('nav-menu');
       var mqNav = window.matchMedia('(max-width: 960px)');
 
-      function setMenu(open) {
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-        menu.classList.toggle('is-open', open);
-        document.body.style.overflow = open ? 'hidden' : '';
+      if (toggle && menu) {
+        function setMenu(open) {
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+          menu.classList.toggle('is-open', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+        }
+
+        toggle.addEventListener('click', function () {
+          setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () { setMenu(false); });
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') setMenu(false);
+        });
+
+        function onNavBreakpoint() {
+          if (!mqNav.matches) setMenu(false);
+        }
+        if (mqNav.addEventListener) mqNav.addEventListener('change', onNavBreakpoint);
+        else mqNav.addListener(onNavBreakpoint);
       }
-
-      toggle.addEventListener('click', function () {
-        setMenu(toggle.getAttribute('aria-expanded') !== 'true');
-      });
-
-      menu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () { setMenu(false); });
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setMenu(false);
-      });
-
-      function onNavBreakpoint() {
-        if (!mqNav.matches) setMenu(false);
-      }
-      if (mqNav.addEventListener) mqNav.addEventListener('change', onNavBreakpoint);
-      else mqNav.addListener(onNavBreakpoint);
 
       var progressBar = document.getElementById('scroll-progress');
       var scrollTicking = false;
       function onScroll() {
-        header.classList.toggle('is-scrolled', window.scrollY > 60);
+        if (header) header.classList.toggle('is-scrolled', window.scrollY > 60);
         if (progressBar) {
           var doc = document.documentElement;
           var max = doc.scrollHeight - doc.clientHeight;
