@@ -59,7 +59,7 @@
       onScroll();
 
       /* Stagger 80ms en grids de tarjetas */
-      ['.featured-card', '.symptom-card', '.secondary-card', '.gallery-item', '.metric-chip', '.process-step'].forEach(function (sel) {
+      ['.featured-card', '.symptom-card', '.secondary-card', '.gallery-item', '.metric-chip', '.process-step', '.prep-card'].forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (card, i) {
           card.style.transitionDelay = (i * 80) + 'ms';
         });

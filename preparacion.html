@@ -19,7 +19,7 @@
   <link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16" />
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="assets/favicon-192.png" type="image/png" sizes="192x192" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="msapplication-TileColor" content="#1e3a5f" />
   <meta name="msapplication-config" content="browserconfig.xml" />
@@ -30,10 +30,16 @@
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="Dr. Marcelo Márquez | Ultrasonido Diagnóstico" />
   <meta property="og:image" content="https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png" />
+  <meta property="og:image:width" content="900" />
+  <meta property="og:image:height" content="1200" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Preparación para Ultrasonido en Mérida | Dr. Marcelo Márquez" />
+  <meta name="twitter:description" content="Indicaciones antes de cada ultrasonido: abdominal, renal, MSE, Doppler y testicular." />
+  <meta name="twitter:image" content="https://ifee09.github.io/DrMarceloMarquez/assets/images/hero-retrato.png" />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Outfit-latin.woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/google-fonts.css" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=f627aaf470" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=802cff44ca" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,7 +54,7 @@
   }
   </script>
 </head>
-<body>
+<body class="prep-page">
   <a class="skip-link" href="#main">Saltar al contenido</a>
   <header class="site-header" id="site-header">
     <a href="index.html" class="nav-logo" aria-label="Dr. Marcelo Márquez Cruz — Inicio">
@@ -59,85 +65,181 @@
     </button>
     <ul class="nav-links" id="nav-menu">
       <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="preparacion.html">Preparación</a></li>
+      <li><a href="preparacion.html" class="is-active">Preparación</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="index.html#about">Sobre mí</a></li>
       <li><a href="index.html#contact" class="nav-cta">Agendar</a></li>
     </ul>
   </header>
   <main id="main">
-    <section class="page-hero">
-      <div class="page-hero-inner glass reveal">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> · Preparación para Ultrasonido</p>
-        <p class="section-label">Dr. Marcelo Márquez · Mérida</p>
-        <h1 class="section-title" style="max-width:22ch">Indicaciones antes de tu ultrasonido</h1>
-        <p class="detail-text">Cada estudio tiene requisitos distintos. Aquí están las indicaciones previas para llegar listo a tu cita en Ultrasonido Biogamma, Mérida. Si tienes duda, escríbeme por WhatsApp antes del estudio.</p>
+    <section class="prep-hero" aria-labelledby="prep-title">
+      <div class="prep-hero__glow" aria-hidden="true"></div>
+      <div class="prep-hero__inner reveal">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> · Preparación</p>
+        <p class="section-label">Ultrasonido Biogamma · Mérida</p>
+        <h1 id="prep-title" class="section-title">Llega listo a tu ultrasonido</h1>
+        <p class="prep-hero__lead">Cada estudio pide algo distinto. Usa la guía de colores y elige tu estudio — o escríbeme por WhatsApp si no estás seguro.</p>
+        <ul class="prep-legend" aria-label="Leyenda de preparación">
+          <li class="prep-legend__item prep-legend__item--libre">
+            <span class="prep-legend__dot" aria-hidden="true"></span>
+            Sin ayuno
+          </li>
+          <li class="prep-legend__item prep-legend__item--ayuno">
+            <span class="prep-legend__dot" aria-hidden="true"></span>
+            Ayuno 4–6 h
+          </li>
+          <li class="prep-legend__item prep-legend__item--vejiga">
+            <span class="prep-legend__dot" aria-hidden="true"></span>
+            Vejiga llena
+          </li>
+        </ul>
+        <nav class="prep-jump" aria-label="Ir a un tipo de estudio">
+          <a href="#mse">Musculoesquelético</a>
+          <a href="#abdominal">Abdominal</a>
+          <a href="#renal">Renal</a>
+          <a href="#doppler">Doppler</a>
+          <a href="#gine">Gine / Obst</a>
+          <a href="#contacto-prep">Dudas</a>
+        </nav>
       </div>
     </section>
 
-    <section class="section page-content" aria-label="Preparación por tipo de estudio">
+    <section class="section prep-catalog" aria-label="Preparación por tipo de estudio">
       <div class="section-inner">
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonidos musculoesqueléticos</h2>
-          <p class="detail-text"><strong>Sin ayuno.</strong> Ropa cómoda de <strong>dos piezas</strong> para descubrir hombro, rodilla, muñeca, tobillo, codo o cadera. Evita cremas o aceites en la zona. Trae US o resonancias previas. Aplica también a lesiones deportivas y ultrasonido reumatológico / Score G-7.</p>
-          <p class="detail-text"><a href="servicios/ultrasonido-musculoesqueletico.html">Ver página de musculoesquelético</a></p>
+        <div class="prep-grid">
+
+          <article class="prep-card prep-card--libre reveal" id="mse">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Ultrasonidos musculoesqueléticos</h2>
+            </div>
+            <p>Ropa cómoda de <strong>dos piezas</strong> para descubrir hombro, rodilla, muñeca, tobillo, codo o cadera. Evita cremas o aceites en la zona. Trae US o resonancias previas. Aplica a lesiones deportivas y ultrasonido reumatológico / Score G-7.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-musculoesqueletico.html">Ver musculoesquelético</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="neuro">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno*</span>
+              <h2>Neurointervencionismo ecoguiado</h2>
+            </div>
+            <p>Habitualmente sin ayuno. Informa anticoagulantes o antiagregantes. Ropa de dos piezas y estudios previos. Puede requerir acompañante. Confirmamos al agendar (Baker, olecraneana, infiltración de rodilla).</p>
+            <a class="prep-card__link" href="servicios/neurointervencionismo-ecoguiado.html">Ver neurointervencionismo</a>
+          </article>
+
+          <article class="prep-card prep-card--ayuno reveal" id="abdominal">
+            <div class="prep-card__top">
+              <span class="prep-badge">Ayuno 4–6 h</span>
+              <h2>Ultrasonido Abdominal</h2>
+            </div>
+            <p>Evitar sólidos grasos. No fumar ni masticar chicle. Líquidos claros en sorbos OK. Ropa de dos piezas. Si incluye vías urinarias, confirmamos vejiga al agendar.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-abdominal.html">Ver abdominal</a>
+          </article>
+
+          <article class="prep-card prep-card--ayuno reveal" id="higado">
+            <div class="prep-card__top">
+              <span class="prep-badge">Ayuno 4–6 h</span>
+              <h2>Hígado y vías biliares</h2>
+            </div>
+            <p>Ayuno de 4 a 6 horas. Hidratación con líquidos claros OK. Ropa de dos piezas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-higado-vias-biliares.html">Ver hígado y vías</a>
+          </article>
+
+          <article class="prep-card prep-card--vejiga reveal" id="renal">
+            <div class="prep-card__top">
+              <span class="prep-badge">Vejiga llena</span>
+              <h2>Renal y vías urinarias</h2>
+            </div>
+            <p>Tomar cerca de <strong>1 litro de agua 1 hora antes</strong> (adultos); unos 250 ml en menores de 8 años. No orinar hasta terminar. Ropa de dos piezas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-renal.html">Ver renal</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="hernias">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Tejidos blandos / hernias</h2>
+            </div>
+            <p>Ropa de dos piezas. Zona accesible; puede pedirse maniobra de Valsalva durante el estudio.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-tejidos-blandos-hernias.html">Ver tejidos blandos</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="testicular">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Testicular / escrotal</h2>
+            </div>
+            <p>Ropa de dos piezas. Trae una <strong>pequeña toalla</strong>. Maniobras dinámicas (Valsalva) para valorar varicocele u otras alteraciones.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-testicular-escrotal.html">Ver testicular</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="doppler">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Doppler venoso / piernas</h2>
+            </div>
+            <p>Sin ayuno para piernas (TVP, várices). Ropa cómoda de dos piezas. Evita cremas espesas en las piernas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-doppler-venoso-mmii.html">Ver Doppler piernas</a>
+          </article>
+
+          <article class="prep-card prep-card--ayuno reveal" id="doppler-hepatico">
+            <div class="prep-card__top">
+              <span class="prep-badge">Ayuno 4–6 h</span>
+              <h2>Doppler hepático</h2>
+            </div>
+            <p>Suele requerir ayuno por el gas intestinal. Confirmamos al agendar.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-doppler-hepatico.html">Ver Doppler hepático</a>
+          </article>
+
+          <article class="prep-card prep-card--vejiga reveal" id="gine">
+            <div class="prep-card__top">
+              <span class="prep-badge">Vejiga llena</span>
+              <h2>Ultrasonido Pélvico</h2>
+            </div>
+            <p><strong>1 litro de agua 1 hora antes</strong>; no orinar hasta después. Indica fecha de última menstruación si aplica. Ropa de dos piezas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-ginecologico-obstetrico.html">Ver gine / obstétrico</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="transvaginal">
+            <div class="prep-card__top">
+              <span class="prep-badge">Vejiga vacía</span>
+              <h2>Ultrasonido Transvaginal</h2>
+            </div>
+            <p>Preferible vejiga vacía. Sin ayuno. Ropa de dos piezas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-ginecologico-obstetrico.html">Ver gine / obstétrico</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="obstetrico">
+            <div class="prep-card__top">
+              <span class="prep-badge">Según trimestre</span>
+              <h2>Ultrasonido Obstétrico</h2>
+            </div>
+            <p><strong>Primer trimestre:</strong> vejiga parcialmente llena. <strong>Segundo y tercer trimestre / morfológico:</strong> sin preparación especial habitual.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-ginecologico-obstetrico.html">Ver gine / obstétrico</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="mamario">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Ultrasonido Mamario</h2>
+            </div>
+            <p>Evita cremas, talco o desodorante en pecho y axilas. Trae mastografías o ultrasonidos previos.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-mamario.html">Ver mamario</a>
+          </article>
+
+          <article class="prep-card prep-card--libre reveal" id="tiroides">
+            <div class="prep-card__top">
+              <span class="prep-badge">Sin ayuno</span>
+              <h2>Tiroides y cuello</h2>
+            </div>
+            <p>Cuello libre (sin collar). Ropa de dos piezas.</p>
+            <a class="prep-card__link" href="servicios/ultrasonido-tiroides.html">Ver tiroides</a>
+          </article>
+
         </div>
-        <div class="service-detail glass reveal">
-          <h2>Neurointervencionismo musculoesquelético ecoguiado</h2>
-          <p class="detail-text"><strong>Habitualmente sin ayuno.</strong> Informa si tomas anticoagulantes o antiagregantes. Ropa de dos piezas y estudios previos. Puede requerir acompañante según el caso. Confirmamos indicaciones al agendar (drenaje de Baker, olecraneana, infiltración de rodilla, etc.).</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Abdominal</h2>
-          <p class="detail-text"><strong>Ayuno de 4 a 6 horas</strong> (evitar sólidos grasos). No fumar ni masticar chicle. Líquidos claros en sorbos están permitidos. Ropa de dos piezas. Si el estudio incluye vías urinarias, confirmamos vejiga al agendar.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Hígado y vías biliares</h2>
-          <p class="detail-text"><strong>Ayuno de 4 a 6 horas.</strong> Hidratación con líquidos claros OK. Ropa de dos piezas.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Renal y vías urinarias</h2>
-          <p class="detail-text"><strong>Vejiga llena:</strong> tomar cerca de 1 litro de agua 1 hora antes (adultos); unos 250 ml en menores de 8 años. No orinar hasta terminar el estudio. Ropa de dos piezas.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Tejidos blandos / hernias</h2>
-          <p class="detail-text"><strong>Sin ayuno.</strong> Ropa de dos piezas. La zona debe ser accesible; puede pedirse maniobra de Valsalva durante el estudio.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido testicular / escrotal</h2>
-          <p class="detail-text"><strong>Sin ayuno.</strong> Ropa de dos piezas. Trae una <strong>pequeña toalla</strong>. Se realizan maniobras dinámicas (p. ej. Valsalva) para valorar varicocele u otras alteraciones.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Doppler venoso / vascular de miembros</h2>
-          <p class="detail-text"><strong>Sin ayuno</strong> para piernas (TVP, várices). Ropa cómoda de dos piezas. Evita cremas espesas en las piernas.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Doppler hepático</h2>
-          <p class="detail-text">Suele requerir <strong>ayuno de 4 a 6 horas</strong> por el gas intestinal. Confirmamos al agendar.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Pélvico</h2>
-          <p class="detail-text"><strong>1 litro de agua 1 hora antes</strong>; no orinar hasta después. Indica fecha de última menstruación si aplica. Ropa de dos piezas.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Transvaginal</h2>
-          <p class="detail-text"><strong>Preferible vejiga vacía.</strong> Sin ayuno. Ropa de dos piezas.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Obstétrico</h2>
-          <p class="detail-text"><strong>Primer trimestre:</strong> vejiga parcialmente llena. <strong>Segundo y tercer trimestre / morfológico:</strong> sin preparación especial habitual.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido Mamario</h2>
-          <p class="detail-text"><strong>Sin ayuno.</strong> Evita cremas, talco o desodorante en pecho y axilas. Trae mastografías o ultrasonidos previos.</p>
-        </div>
-        <div class="service-detail glass reveal">
-          <h2>Ultrasonido de Tiroides y Cuello</h2>
-          <p class="detail-text"><strong>Sin ayuno.</strong> Cuello libre (sin collar). Ropa de dos piezas.</p>
-        </div>
+        <p class="prep-footnote reveal">*Neurointervencionismo: confirmamos indicaciones al agendar. Trae siempre estudios previos si los tienes.</p>
       </div>
     </section>
 
-    <section class="section contact" id="contact" style="padding-top:0">
+    <section class="section contact" id="contacto-prep" style="padding-top:0">
       <div class="section-inner contact-shell">
         <div class="reveal">
           <p class="section-label">¿Dudas sobre tu preparación?</p>
@@ -166,6 +268,6 @@
       <span>WhatsApp</span>
     </a>
   </div>
-  <script src="assets/js/main.js?v=f627aaf470" defer></script>
+  <script src="assets/js/main.js?v=802cff44ca" defer></script>
 </body>
 </html>
