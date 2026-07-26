@@ -65,15 +65,15 @@
     }
 
     body::before {
-      width: 42vw; height: 42vw;
-      top: -8vw; right: -10vw;
+      width: 65vw; height: 65vw;
+      top: -5vh; right: -5vw;
       background: radial-gradient(circle, #c5d8e4 0%, transparent 70%);
       animation: blob-drift-a 28s ease-in-out infinite alternate;
     }
 
     body::after {
-      width: 36vw; height: 36vw;
-      bottom: 10vh; left: -12vw;
+      width: 60vw; height: 60vw;
+      bottom: 5vh; left: -5vw;
       background: radial-gradient(circle, #d4e4ee 0%, transparent 70%);
       animation: blob-drift-b 34s ease-in-out infinite alternate;
     }
