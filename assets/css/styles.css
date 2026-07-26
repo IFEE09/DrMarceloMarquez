@@ -1649,7 +1649,8 @@
   position: absolute;
   inset: 10% 15% auto;
   height: 55%;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55), transparent 70%);
+  background: radial-gradient(ellipse at 30% 40%, rgba(31, 143, 163, 0.22), transparent 60%),
+    radial-gradient(ellipse at 75% 60%, rgba(201, 145, 31, 0.16), transparent 65%);
   pointer-events: none;
   animation: prepGlow 8s ease-in-out infinite alternate;
 }
@@ -1702,23 +1703,23 @@
   flex-shrink: 0;
 }
 .prep-legend__item--libre {
-  background: rgba(110, 146, 168, 0.14);
-  border-color: rgba(110, 146, 168, 0.35);
+  background: rgba(31, 143, 163, 0.16);
+  border-color: rgba(31, 143, 163, 0.4);
   color: var(--ink);
 }
-.prep-legend__item--libre .prep-legend__dot { background: #6e92a8; }
+.prep-legend__item--libre .prep-legend__dot { background: #1f8fa3; }
 .prep-legend__item--ayuno {
-  background: rgba(210, 192, 154, 0.28);
-  border-color: rgba(185, 166, 122, 0.5);
+  background: rgba(201, 145, 31, 0.2);
+  border-color: rgba(201, 145, 31, 0.48);
   color: var(--ink);
 }
-.prep-legend__item--ayuno .prep-legend__dot { background: #b9a67a; }
+.prep-legend__item--ayuno .prep-legend__dot { background: #c9911f; }
 .prep-legend__item--vejiga {
-  background: rgba(126, 160, 181, 0.2);
-  border-color: rgba(126, 160, 181, 0.45);
+  background: rgba(49, 89, 168, 0.15);
+  border-color: rgba(49, 89, 168, 0.42);
   color: var(--ink);
 }
-.prep-legend__item--vejiga .prep-legend__dot { background: #7ea0b5; }
+.prep-legend__item--vejiga .prep-legend__dot { background: #3159a8; }
 
 .prep-jump {
   display: flex;
@@ -1768,14 +1769,17 @@
   width: 4px;
   background: var(--navy);
 }
-.prep-card--libre::before { background: linear-gradient(180deg, #6e92a8, #8eb0c4); }
-.prep-card--ayuno::before { background: linear-gradient(180deg, #b9a67a, #d2c09a); }
-.prep-card--vejiga::before { background: linear-gradient(180deg, #5f8aa3, #7ea0b5); }
+.prep-card--libre::before { background: linear-gradient(180deg, #1f8fa3, #4db6c9); }
+.prep-card--ayuno::before { background: linear-gradient(180deg, #c9911f, #e0b04a); }
+.prep-card--vejiga::before { background: linear-gradient(180deg, #3159a8, #5b7fc7); }
 .prep-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 18px 40px rgba(62, 83, 102, 0.12);
   border-color: rgba(210, 192, 154, 0.45);
 }
+.prep-card--libre:hover { box-shadow: 0 18px 40px rgba(31, 143, 163, 0.24); border-color: rgba(31, 143, 163, 0.5); }
+.prep-card--ayuno:hover { box-shadow: 0 18px 40px rgba(201, 145, 31, 0.26); border-color: rgba(201, 145, 31, 0.5); }
+.prep-card--vejiga:hover { box-shadow: 0 18px 40px rgba(49, 89, 168, 0.24); border-color: rgba(49, 89, 168, 0.5); }
 .prep-card__top {
   display: flex;
   flex-direction: column;
@@ -1794,16 +1798,16 @@
   background: rgba(126, 160, 181, 0.16);
 }
 .prep-card--ayuno .prep-badge {
-  background: rgba(210, 192, 154, 0.4);
-  color: #5a4e35;
+  background: rgba(201, 145, 31, 0.26);
+  color: #7a5510;
 }
 .prep-card--vejiga .prep-badge {
-  background: rgba(95, 138, 163, 0.2);
-  color: #35566a;
+  background: rgba(49, 89, 168, 0.2);
+  color: #22407e;
 }
 .prep-card--libre .prep-badge {
-  background: rgba(110, 146, 168, 0.18);
-  color: #3e5366;
+  background: rgba(31, 143, 163, 0.2);
+  color: #0f5a68;
 }
 .prep-card h2 {
   font-family: 'Playfair Display', serif;
