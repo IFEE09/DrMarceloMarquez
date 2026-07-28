@@ -707,6 +707,22 @@
     }
     footer span { color: var(--ink-soft); }
 
+    .site-footer { position: relative; z-index: 1; padding: 3rem 4% 2.5rem; max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .footer-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.35rem; }
+    .footer-title { color: var(--ink); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul a { color: var(--muted); font-size: 0.85rem; text-decoration: none; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; }
+    @media (max-width: 720px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
     /* Float CTA: Agenda aquí + WhatsApp */
     .float-cta {
       position: fixed;
