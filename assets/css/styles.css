@@ -312,7 +312,7 @@
       display: flex; width: max-content; max-width: none; gap: 1rem; align-items: center;
       animation: ticker-scroll 34s linear infinite;
       font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: 1.05rem; color: var(--ink-soft); white-space: nowrap;
+      font-size: 1.05rem; color: #ffffff; white-space: nowrap;
       will-change: transform;
     }
     .ticker:hover .ticker-track { animation-play-state: paused; }
@@ -1326,6 +1326,10 @@
       max-width: none;
       margin-left: auto;
       margin-right: auto;
+    }
+    .video-reel__title {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      max-width: 30ch;
     }
     .video-reel__intro .section-sub {
       margin-left: auto;

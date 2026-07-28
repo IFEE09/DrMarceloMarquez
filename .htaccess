@@ -1,4 +1,4 @@
-# ── Dr. Marcelo Márquez — Hostinger (LiteSpeed/Apache) ──
+# ── Dr. Marcelo Marquez — Hostinger (LiteSpeed/Apache) ──
 
 # HTTPS + no-www canónico (301)
 <IfModule mod_rewrite.c>

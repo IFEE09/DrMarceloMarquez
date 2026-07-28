@@ -1,4 +1,4 @@
-# Dr. Marcelo Márquez — recursos
+# Dr. Marcelo Marquez — recursos
 
 ## Estructura
 - `index.html` — home SEO (servicios, síntomas, FAQ, contacto)
