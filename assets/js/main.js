@@ -156,18 +156,6 @@
         navSections.forEach(function (item) { navIO.observe(item.section); });
       }
 
-      /* Mapa façade: el iframe de Google Maps (~1MB) solo carga al hacer clic */
-      document.querySelectorAll('.map-facade').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var iframe = document.createElement('iframe');
-          iframe.title = 'Ubicación de Ultrasonido Biogamma en Google Maps';
-          iframe.src = btn.dataset.mapSrc;
-          iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-          iframe.setAttribute('allowfullscreen', '');
-          btn.replaceWith(iframe);
-        }, { once: true });
-      });
-
       /* Cursor personalizado — punto al instante, anillo con persecución rápida */
       (function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
