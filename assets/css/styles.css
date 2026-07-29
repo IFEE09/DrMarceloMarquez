@@ -133,11 +133,21 @@
       box-shadow: 0 8px 32px rgba(26, 27, 30, 0.10);
       transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, height 0.35s ease;
     }
+    /* Al bajar, el navbar se aligera: 0.82 sin scroll -> 0.68 con scroll.
+       El tope es 0.68 porque el navbar flota sobre .statement-section (fondo
+       oscuro) y por debajo de 0.66 el texto baja de 4.5:1 de contraste (AA).
+       Mismo valor en móvil y desktop: medido, el contraste es equivalente. */
     .site-header.is-scrolled {
       height: 3.85rem;
       padding-top: 0; padding-bottom: 0;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 2px 20px rgba(62, 83, 102, 0.12);
+      background: rgba(255, 255, 255, 0.68);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 2px 16px rgba(62, 83, 102, 0.08);
+    }
+    /* Sin backdrop-filter no hay desenfoque detrás: mantener opaco para
+       no perder contraste del texto del navbar. */
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+      .site-header.is-scrolled { background: rgba(255, 255, 255, 0.9); }
     }
     .nav-logo {
       display: inline-flex; align-items: center;
