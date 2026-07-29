@@ -143,6 +143,7 @@
       display: inline-flex; align-items: center;
       text-decoration: none; z-index: 110; line-height: 0;
       flex-shrink: 1; min-width: 0; max-width: calc(100% - 3.75rem);
+      min-height: 44px; /* área táctil: la imagen sola mide ~26px de alto */
     }
     .nav-logo img {
       display: block;
@@ -152,7 +153,7 @@
       object-fit: contain;
     }
     .nav-toggle {
-      display: none; z-index: 110; width: 2.5rem; height: 2.5rem;
+      display: none; z-index: 110; width: 2.75rem; height: 2.75rem;
       border: 1px solid var(--line); background: rgba(255, 255, 255, 0.5);
       border-radius: 999px; cursor: pointer; align-items: center;
       justify-content: center; flex-direction: column; gap: 5px;
@@ -276,7 +277,7 @@
       border: 1px solid rgba(255, 255, 255, 0.35);
     }
     .btn-outline:hover { background: rgba(255, 255, 255, 0.12); }
-    .btn-sm { padding: 0.7rem 1.2rem; font-size: 0.82rem; }
+    .btn-sm { padding: 0.7rem 1.2rem; font-size: 0.82rem; min-height: 44px; }
 
     .hero-visual {
       position: relative; border-radius: 28px; overflow: hidden; height: 70vh; min-height: 520px;
@@ -869,7 +870,7 @@
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn { width: 100%; }
       .hero-visual { height: min(70vw, 500px); min-height: 400px; }
-      .hero-kicker { font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 0.85rem; }
+      .hero-kicker { font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 0.85rem; }
       .hero-brand { font-size: clamp(1.55rem, 7vw, 1.95rem); margin-bottom: 0.9rem; }
       .hero-lead { font-size: 0.95rem; margin-bottom: 1.35rem; }
       .featured-grid, .symptoms-grid, .gallery-grid, .secondary-grid { grid-template-columns: 1fr; }
@@ -1173,7 +1174,7 @@
       gap: 2rem;
     }
     .statement-eyebrow {
-      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.2em;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--gold); opacity: 0.85;
     }
     .statement-headline {
@@ -1358,8 +1359,8 @@
       background: rgba(255, 255, 255, 0.55);
       color: var(--ink);
       border-radius: 999px;
-      height: 2.35rem;
-      min-width: 2.35rem;
+      height: 2.75rem;
+      min-width: 2.75rem;
       padding: 0 0.9rem;
       font-size: 1.15rem;
       font-weight: 600;
@@ -1381,7 +1382,7 @@
     }
     .video-reel__dots {
       display: flex;
-      gap: 0.45rem;
+      gap: 1rem;
       align-items: center;
     }
     .video-reel__dot {
@@ -1393,6 +1394,18 @@
       background: rgba(62, 83, 102, 0.28);
       cursor: pointer;
       transition: width 0.25s, background 0.25s;
+      position: relative;
+    }
+    /* Área táctil de 44px de alto sin agrandar el punto visible. El ancho
+       llega hasta la mitad del gap para no solaparse con el dot vecino. */
+    .video-reel__dot::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% + 1rem);
+      height: 44px;
     }
     .video-reel__dot.is-active {
       width: 1.35rem;
@@ -1482,7 +1495,7 @@
     }
     .joint-card__prep {
       display: block;
-      font-size: 0.72rem; font-weight: 600;
+      font-size: 0.75rem; font-weight: 600;
       letter-spacing: 0.04em; text-transform: uppercase;
       color: var(--ink-soft);
     }
@@ -1757,7 +1770,7 @@
 }
 .prep-badge {
   align-self: flex-start;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1796,6 +1809,7 @@
 .prep-card__link {
   display: inline-flex;
   align-items: center;
+  min-height: 44px; /* área táctil; el texto solo daba ~22px */
   gap: 0.35rem;
   font-size: 0.84rem;
   font-weight: 600;
