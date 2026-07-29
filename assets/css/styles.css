@@ -663,25 +663,6 @@
     .contact-shell .section-label { color: var(--accent-soft); }
     .contact-shell .section-title { color: var(--white); max-width: 14ch; }
     .contact-shell .section-sub { color: rgba(255, 255, 255, 0.68); }
-    .contact-location {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      margin-top: 1rem; color: var(--accent-soft); text-decoration: none;
-      font-size: 0.95rem; font-weight: 600;
-      border-bottom: 1px solid rgba(226, 212, 181, 0.45);
-      padding-bottom: 0.15rem;
-    }
-    .contact-location svg {
-      width: 1.05rem; height: 1.05rem; stroke: currentColor; fill: none;
-      stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
-    }
-    .contact-location:hover { color: var(--white); border-bottom-color: rgba(255,255,255,0.5); }
-    .contact-phone {
-      display: inline-block; margin-top: 1.1rem;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 3.2vw, 2.3rem); color: var(--white);
-      text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      padding-bottom: 0.15rem;
-    }
     .contact-meta { margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.55); }
     .contact-actions {
       display: flex; flex-direction: column; gap: 0.85rem; align-items: stretch;
@@ -933,9 +914,6 @@
     }
 
     /* Grupo 2 secondary */
-    .secondary-grid {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem;
-    }
     .secondary-card {
       border-radius: 18px; padding: 1.2rem 1.15rem; text-decoration: none; color: inherit;
       background: rgba(255, 255, 255, 0.75);
@@ -955,7 +933,6 @@
       font-family: 'Playfair Display', serif; font-size: 1.05rem;
       font-weight: 400; color: var(--navy); margin-bottom: 0.4rem;
     }
-    .secondary-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
 
     /* PROCESO — pasos */
     .process-grid {
@@ -1250,25 +1227,6 @@
       width: 1.1rem; height: 1.1rem;
       stroke: currentColor; fill: none;
       stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
-    }
-
-    /* ── Botones con hover magnético ── */
-    .btn-magnetic {
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.3s ease !important;
-    }
-
-    /* ── Línea separadora estilo editorial ── */
-    .editorial-divider {
-      position: relative; z-index: 1;
-      display: flex; align-items: center; gap: 1.5rem;
-      padding: 0 4%; max-width: 1120px; margin: 0 auto;
-      color: var(--muted); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-    }
-    .editorial-divider::before,
-    .editorial-divider::after {
-      content: ''; flex: 1; height: 1px; background: var(--line);
     }
 
     /* ── Responsive Vicio layer ── */
