@@ -14,3 +14,6 @@ if [[ -n "$changed" ]]; then
   git add -- $changed
   echo "pre-commit: HTML con cache-bust añadidos al commit"
 fi
+
+# lastmod del sitemap sólo para las páginas que van en este commit
+"$ROOT/scripts/sitemap-lastmod.sh"

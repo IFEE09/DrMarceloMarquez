@@ -30,10 +30,11 @@ import pathlib, re, sys
 
 version = sys.argv[1]
 root = pathlib.Path(".").resolve()
+# El prefijo es libre para cubrir rutas relativas, ../ y absolutas (404.html)
 patterns = [
-    (re.compile(r'(href=["\'](?:\.\./)?assets/css/styles\.css)(?:\?v=[^"\']*)?(["\'])'),
+    (re.compile(r'(href=["\'][^"\']*?assets/css/styles\.css)(?:\?v=[^"\']*)?(["\'])'),
      rf'\1?v={version}\2'),
-    (re.compile(r'(src=["\'](?:\.\./)?assets/js/main\.js)(?:\?v=[^"\']*)?(["\'])'),
+    (re.compile(r'(src=["\'][^"\']*?assets/js/main\.js)(?:\?v=[^"\']*)?(["\'])'),
      rf'\1?v={version}\2'),
 ]
 
