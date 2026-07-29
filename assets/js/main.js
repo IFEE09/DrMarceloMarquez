@@ -174,19 +174,26 @@
         var mx = -100, my = -100, rx = -100, ry = -100;
         /* Antes: 0.07 (muy lento). ~0.45 se siente al ritmo del cursor, con un chase leve. */
         var RING_EASE = 0.45;
+        var raf = null;
+
+        function tick() {
+          dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+          rx += (mx - rx) * RING_EASE;
+          ry += (my - ry) * RING_EASE;
+          ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
+          /* Detiene el loop al converger; se reanuda solo con el próximo mousemove. */
+          if (Math.abs(mx - rx) > 0.1 || Math.abs(my - ry) > 0.1) {
+            raf = requestAnimationFrame(tick);
+          } else {
+            raf = null;
+          }
+        }
 
         document.addEventListener('mousemove', function (e) {
           mx = e.clientX;
           my = e.clientY;
-          dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+          if (raf === null) raf = requestAnimationFrame(tick);
         }, { passive: true });
-
-        (function loop() {
-          rx += (mx - rx) * RING_EASE;
-          ry += (my - ry) * RING_EASE;
-          ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
-          requestAnimationFrame(loop);
-        })();
 
         var hoverEls = document.querySelectorAll('a, button, [role="button"], summary, .featured-card, .symptom-card, .secondary-card, .float-cta__book, .wa-float');
         hoverEls.forEach(function (el) {

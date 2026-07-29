@@ -78,13 +78,14 @@
       animation: blob-drift-b 34s ease-in-out infinite alternate;
     }
 
+    /* Solo translate: con scale() el navegador re-rasteriza el blur(70px) cada frame. */
     @keyframes blob-drift-a {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(-10vw, 14vh) scale(1.14); }
+      from { transform: translate(0, 0); }
+      to { transform: translate(-10vw, 14vh); }
     }
     @keyframes blob-drift-b {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(12vw, -10vh) scale(1.18); }
+      from { transform: translate(0, 0); }
+      to { transform: translate(12vw, -10vh); }
     }
 
     img { max-width: 100%; display: block; }
@@ -253,19 +254,21 @@
         rgba(255, 255, 255, 0.35) 50%,
         transparent 100%
       );
-      transform: skewX(-20deg);
+      transform: translateX(0) skewX(-20deg);
       animation: shimmer 3.5s infinite;
       pointer-events: none;
     }
+    /* translateX en vez de left: 'left' dispara layout+paint en cada frame.
+       El elemento mide 50% del padre, así que 400% propio = el mismo recorrido. */
     @keyframes shimmer {
-      0% { left: -75%; }
-      30% { left: 125%; }
-      100% { left: 125%; }
+      0% { transform: translateX(0) skewX(-20deg); }
+      30% { transform: translateX(400%) skewX(-20deg); }
+      100% { transform: translateX(400%) skewX(-20deg); }
     }
     .btn-primary:hover { transform: translateY(-2px); background: #5d8198; box-shadow: 0 10px 24px rgba(110, 146, 168, 0.35); }
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.45); color: var(--ink);
-      border: 1px solid rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.72); color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
     .btn-ghost:hover { background: rgba(255, 255, 255, 0.75); transform: translateY(-2px); }
     .btn-outline {
@@ -367,9 +370,7 @@
     }
     .featured-card {
       border-radius: 22px; padding: 1.5rem 1.35rem; text-decoration: none; color: inherit;
-      background: rgba(255, 255, 255, 0.42);
-      backdrop-filter: blur(16px) saturate(1.25);
-      -webkit-backdrop-filter: blur(16px) saturate(1.25);
+      background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(255, 255, 255, 0.58);
       box-shadow: 0 8px 30px rgba(26, 27, 30, 0.04);
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -409,9 +410,8 @@
     }
     .symptom-card {
       border-radius: 18px; padding: 1.2rem 1.15rem; text-decoration: none;
-      color: inherit; background: rgba(255, 255, 255, 0.48);
+      color: inherit; background: rgba(255, 255, 255, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.62);
-      backdrop-filter: blur(12px);
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s,
         box-shadow 0.4s, border-color 0.35s;
       display: grid;
@@ -495,8 +495,8 @@
     .about-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 2rem; }
     .metric-chip {
       border-radius: 18px; padding: 1.15rem 1.2rem;
-      background: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.65); backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.65);
     }
     .metric-chip .stat-number,
     .metric-chip strong {
@@ -589,8 +589,8 @@
       margin: 0 auto;
     }
     .faq-item {
-      border-radius: 18px; background: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px);
+      border-radius: 18px; background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.6);
       overflow: hidden;
     }
     .faq-item summary {
@@ -929,9 +929,8 @@
     }
     .secondary-card {
       border-radius: 18px; padding: 1.2rem 1.15rem; text-decoration: none; color: inherit;
-      background: rgba(255, 255, 255, 0.48);
+      background: rgba(255, 255, 255, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.62);
-      backdrop-filter: blur(12px);
       min-width: 0;
       overflow-wrap: anywhere;
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s,
@@ -963,9 +962,8 @@
     .process-step {
       position: relative; z-index: 1;
       border-radius: 22px; padding: 1.6rem 1.35rem 1.4rem;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.76);
       border: 1px solid rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 8px 30px rgba(26, 27, 30, 0.04);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
@@ -1231,7 +1229,7 @@
       position: absolute; top: 0; left: -75%;
       width: 50%; height: 100%;
       background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      transform: skewX(-20deg);
+      transform: translateX(0) skewX(-20deg);
       animation: shimmer 3.5s infinite;
     }
     .statement-cta:hover {
@@ -1479,10 +1477,8 @@
     .joint-card {
       border-radius: 18px;
       padding: 1.15rem 1.1rem 1.2rem;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.78);
       border: 1px solid rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       text-decoration: none;
       color: inherit;
       min-width: 0;
@@ -1616,8 +1612,7 @@
 }
 .secondary-card {
   border-radius: 18px; padding: 1.25rem 1.15rem; text-decoration: none; color: inherit;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.74);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 6px 24px rgba(26, 27, 30, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1662,9 +1657,10 @@
   opacity: 1;
   animation: prepGlow 8s ease-in-out infinite alternate;
 }
+/* Solo opacity: con scale() se re-rasteriza el blur(40px) cada frame. */
 @keyframes prepGlow {
-  from { opacity: 0.55; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1.04); }
+  from { opacity: 0.55; }
+  to { opacity: 1; }
 }
 .prep-hero__inner {
   position: relative;
@@ -1762,9 +1758,7 @@
   position: relative;
   border-radius: 22px;
   padding: 1.35rem 1.4rem 1.25rem;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow: 0 8px 28px rgba(62, 83, 102, 0.06);
   overflow: hidden;
