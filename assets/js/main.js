@@ -41,11 +41,16 @@
       var progressBar = document.getElementById('scroll-progress');
       var scrollTicking = false;
       function onScroll() {
-        if (header) header.classList.toggle('is-scrolled', window.scrollY > 60);
+        /* Leer layout antes de escribir estilos. Al revés, el classList.toggle
+           invalida el estilo y el scrollHeight siguiente fuerza un recálculo
+           de layout sincrónico en cada frame de scroll. */
+        var y = window.scrollY;
+        var doc = document.documentElement;
+        var max = progressBar ? doc.scrollHeight - doc.clientHeight : 0;
+
+        if (header) header.classList.toggle('is-scrolled', y > 60);
         if (progressBar) {
-          var doc = document.documentElement;
-          var max = doc.scrollHeight - doc.clientHeight;
-          var ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+          var ratio = max > 0 ? Math.min(y / max, 1) : 0;
           progressBar.style.transform = 'scaleX(' + ratio + ')';
         }
         scrollTicking = false;
@@ -58,10 +63,12 @@
       }, { passive: true });
       onScroll();
 
-      /* Stagger 80ms en grids de tarjetas */
+      /* Stagger 80ms en grids de tarjetas, tope 480ms: el índice es global a la
+         página, así que sin tope la tarjeta 14 esperaba 1040ms + 0.6s de
+         transición para aparecer estando ya en pantalla. */
       ['.featured-card', '.symptom-card', '.secondary-card', '.gallery-item', '.metric-chip', '.process-step', '.prep-card'].forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (card, i) {
-          card.style.transitionDelay = (i * 80) + 'ms';
+          card.style.transitionDelay = (Math.min(i, 6) * 80) + 'ms';
         });
       });
 

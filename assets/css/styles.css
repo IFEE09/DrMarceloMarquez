@@ -359,6 +359,15 @@
                   transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
     html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    /* Above-the-fold: nunca ocultarlo. Con opacity:0 el LCP no cuenta como
+       pintado hasta que corre el JS diferido y termina la transición de 0.6s. */
+    html.js .hero-copy.reveal,
+    html.js .hero-visual.reveal,
+    html.js .page-hero-inner.reveal,
+    html.js .prep-hero__inner.reveal {
+      opacity: 1;
+      transform: none;
+    }
     @media (prefers-reduced-motion: reduce) {
       html.js .reveal { opacity: 1; transform: none; transition: none; }
     }
