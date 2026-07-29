@@ -143,7 +143,9 @@
         });
       });
 
-      var navLinks = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
+      /* menu puede ser null: sin la guarda, esto lanza y mata todo el JS
+         posterior (cursor, carrusel de video). */
+      var navLinks = menu ? Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]')) : [];
       if (navLinks.length && 'IntersectionObserver' in window) {
         var navSections = [];
         navLinks.forEach(function (link) {
